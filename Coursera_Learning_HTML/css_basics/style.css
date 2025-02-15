@@ -1,0 +1,135 @@
+h1 {
+    color: purple;
+}
+
+h2 {
+    color: #de1212;
+    font-family: cursive;
+}
+h3 {
+    color: blue;
+}
+#header1 {
+    color: rgb(48, 206, 0);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 78px;
+}
+p {
+    color: rgb(247, 66, 0);
+}
+#latest {
+    background-color: blue;
+    color: antiquewhite;
+}
+
+.navigation {
+    margin: 1px;
+}
+
+p.introduction {
+    margin: 50px;
+}
+#blog h1 {
+    color: rgba(100, 9, 246, 0.775);
+  }
+#blog p {
+    color: crimson;
+}
+
+#blog div h1 {
+    color: rgb(179, 255, 0);
+  }
+
+#blog > h1 {
+    color: blue;
+  }
+
+a:hover {
+    color: darkblue;
+}
+
+p:hover {
+    color: brown;
+}
+
+h1:hover {
+    color: chartreuse;
+}
+
+h2:hover {
+    color: #12dec6;
+}
+/* From CSS Version 3, there are five main ways to reference a color.
+
+By RGB value,
+
+By RGBA value,
+
+By HSL value,
+
+By hex value and
+
+By predefined color names. */ 
+
+/*
+RGB value
+
+RGB is a color model that adds the colors red (R), green (G) and blue (B) together to create colors. This is based on how the human eye sees colors.
+
+Each value is defined as a number between 0 and 255, representing the intensity of that color.
+
+For example, the color red would have the RGB value of 255,0,0 since the intensity of the red color would be 100% while blue and green would be 0%.
+
+The color black then would be 0,0,0 and the color white 255,255,255.
+
+When using RGB values in CSS, they can be defined using the rgb keyword:
+*/
+p { 
+    color: rgb(255, 0, 0); 
+  }
+
+/*
+RGBA value
+
+RGBA is an extension of RGB that add an alpha (A) channel. The alpha channel represents the opacity, or transparency, of the color.
+
+Similar to RGB, this is specified in CSS using the rgba keyword:
+*/
+
+p { 
+    color: rgba(255, 0, 0, 0.7); 
+  }
+
+  /*
+  HSL value
+
+    HSL is a newer color model defined as Hue (H), Saturation (S) and Lightness (L). 
+    The aim of the model is to simplify mental visualization of the color that the value represents.
+
+    Think of a rainbow that has been turned into a full circle. 
+    This represents the Hue. The Hue value is the degree value on this circle, 
+    from 0 degrees to 360 degrees. 0 is red, 120 is green and 240 is blue.
+    Saturation is the distance from the center of the circle to its edge. 
+
+    The saturation value is represented by a percentage from 0% to 100% where 0% 
+    is the center of the circle and 100% is its edge. For example, 0% will mean that the 
+    color is more grey and 100% represents the full color.
+
+    Lightness is the third element of this color model. 
+    Think of it as turning the circle into a 3D cylinder where 
+    the bottom of the cylinder is more black and toward the top is more white. 
+    Therefore, lightness is the distance from the bottom of the cylinder to the top. 
+    Again, lightness is represented by a percentage from 0% to 100% where 0% is the 
+    bottom of the cylinder and 100% is its top. In other words, 0% will mean that the 
+    color is more black and 100% is white.  
+
+    In CSS, you use the hsl keyword to define a color with HSL.
+    */
+
+    p { 
+        color: hsl(0, 100%, 50%);
+        text-transform: uppercase;
+        text-decoration: underline #12dec6 3px;
+        text-align: center;
+        text-decoration-style: wavy;
+      }

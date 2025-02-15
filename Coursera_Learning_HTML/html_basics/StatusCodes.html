@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Status Codes</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            transition: color 0.5s ease-in-out;
+        }
+
+        table {
+            width: 80%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+
+        th {
+            background-color: #4287f5;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        tr:hover td {
+            background-color: #e0f2f7;
+            cursor: pointer;
+        }
+
+        caption {
+            caption-side: bottom;
+            font-style: italic;
+            padding: 10px;
+            color: #777;
+        }
+
+        /* Vibration effect CSS */
+        .vibrate {
+          animation: vibrate 0.3s linear infinite;
+        }
+
+        @keyframes vibrate {
+          0% { transform: translate(0); }
+          20% { transform: translate(-2px, 2px); }
+          40% { transform: translate(-2px, -2px); }
+          60% { transform: translate(2px, 2px); }
+          80% { transform: translate(2px, -2px); }
+          100% { transform: translate(0); }
+        }
+
+
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+                font-size: 14px;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>HTTP Status Codes</h2>
+
+    <table>
+        <caption>Common HTTP Status Code Ranges</caption>
+        <thead>
+            <tr>
+                <th>Meaning</th>
+                <th>Code Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Informational</td>
+                <td>100 - 199</td>
+            </tr>
+            <tr>
+                <td>Successful</td>
+                <td>200 - 299</td>
+            </tr>
+            <tr>
+                <td>Redirection</td>
+                <td>300 - 399</td>
+            </tr>
+            <tr>
+                <td>Client Error</td>
+                <td>400 - 499</td>
+            </tr>
+            <tr>
+                <td>Server Error</td>
+                <td>500 - 599</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const heading = document.querySelector('h2');
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeHeadingColor() {
+            heading.style.color = getRandomColor();
+        }
+
+        setInterval(changeHeadingColor, 500);
+
+        // Vibration effect JavaScript (Corrected)
+        const tableCells = document.querySelectorAll('td, th');
+
+        tableCells.forEach(cell => {
+            cell.addEventListener('mouseover', () => {
+                cell.classList.add('vibrate');
+            });
+            cell.addEventListener('mouseout', () => {
+                cell.classList.remove('vibrate');
+            });
+        });
+    </script>
+</body>
+</html>
