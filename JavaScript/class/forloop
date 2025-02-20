@@ -1,0 +1,95 @@
+// const car2 = {
+//     speed: 200,
+//     color: "red"
+// }
+// console.log(Object.keys(car2)); 
+// console.log("**********************************")
+// console.log(Object.values(car2)); 
+// console.log("**********************************")
+// console.log(Object.entries(car2)); 
+// console.log("**********************************")
+
+
+// var clothingItem = {
+//     price: 50,
+//     color: 'beige',
+//     material: 'cotton',
+//     season: 'autumn'
+// }
+
+// for( const key of Object.keys(clothingItem) ) {
+//     console.log(key, ":", clothingItem[key])
+// }
+
+// console.log("**********************************")
+
+// var footwearItem = {
+//     type: "Heeled",
+//     shape: "Pointed",
+//     color: "black",
+//     price: 999,
+//     size: 9
+// }
+
+// for (const key of Object.keys(footwearItem)){
+//     console.log(key, ":", footwearItem[key])
+// }
+
+function testBracketsDynamicAccess() {
+    var dynamicKey;
+    if (Math.random() > 0.5) {
+        dynamicKey = "speed";
+    }
+    else {
+        dynamicKey = "color";
+    }
+
+    var drone = {
+        speed: 15,
+        color: "orange"
+    }
+    console.log(drone[dynamicKey]);
+}
+
+testBracketsDynamicAccess();
+
+
+// Task 1
+var dairy = ['cheese', 'sour cream', 'milk', 'yogurt', 'ice cream', 'milkshake']
+
+function logDairy() {
+    for (let item of dairy) {
+        console.log(item);
+    }
+}
+
+// Task 2 and 3
+const animal = {
+    canJump: true
+};
+
+const bird = Object.create(animal);
+bird.canFly = true;
+bird.hasFeathers = true;
+
+function birdCan() {
+    for (let prop of Object.keys(bird)) {
+        console.log(`${prop}: ${bird[prop]}`);
+    }
+}
+
+function animalCan() {
+    for (let prop in bird) {
+        console.log(`${prop}: ${bird[prop]}`);
+    }
+}
+
+// Call the functions
+console.log("Task 1 output:");
+logDairy();
+
+console.log("\nTask 2 output:");
+birdCan();
+
+console.log("\nTask 3 output:");
+animalCan();
