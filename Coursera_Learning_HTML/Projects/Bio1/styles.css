@@ -1,0 +1,59 @@
+/* Custom styles to override Bootstrap defaults */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #F7FAFC, #fff); /* Subtle gradient background */
+    color: #333;
+}
+
+.bg-slate-gray {
+    background-color: #4A5568; /* Slate Gray */
+}
+
+h1, h2, h3 {
+    color: #4A5568;
+}
+
+.border-bottom {
+    border-bottom: 2px solid #4A5568 !important;
+}
+
+.list-group-item {
+    background-color: #EDF2F7;
+    border: none;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.list-group-item:hover {
+    transform: translateX(5px);
+    background-color: #E2E8F0;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-body {
+    background-color: #fff;
+}
+
+a.text-light:hover {
+    color: #E53E3E !important; /* Coral accent for hover */
+}
+
+/* Profile Picture Styling */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image fits nicely */
+    border: 3px solid #fff; /* White border for contrast */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .display-4 { font-size: 2rem; }
+    .lead { font-size: 1rem; }
+    .profile-pic { width: 100px; height: 100px; }
+}

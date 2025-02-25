@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 50px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(50px, 10vw, 150px);
+    position: relative;
+}
+
+.cube-container {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cube {
+    position: relative;
+    width: clamp(100px, 15vw, 200px);
+    height: clamp(100px, 15vw, 200px);
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.face {
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+
+.front { background-color: #9B59B6; transform: translateZ(calc(50% - 8px)); }
+.back { background-color: #FF69B4; transform: translateZ(calc(-50% + 8px)); }
+.right { background-color: #3498DB; transform: translateX(calc(50% - 8px)) rotateY(90deg); }
+.left { background-color: #E74C3C; transform: translateX(calc(-50% + 8px)) rotateY(-90deg); }
+.top { background-color: #F1C40F; transform: translateY(calc(-50% + 8px)) rotateX(90deg); }
+.bottom { background-color: #27AE60; transform: translateY(calc(50% - 8px)) rotateX(-90deg); }
+
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-text {
+    color: #953ef5;
+    font-size: clamp(40px, 8vw, 90px);
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sub-text {
+    color: #4a1e9e;
+    font-size: clamp(25px, 5vw, 50px);
+    font-weight: bold;
+    margin: 10px 0 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        gap: clamp(20px, 5vw, 50px);
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* You might adjust sizes here if needed */
+}

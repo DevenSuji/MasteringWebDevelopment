@@ -1,3 +1,71 @@
+# <span style="color: #0078D7;"><u><i>Anatomy of Google Ads</i></u></span>
+
+---
+
+# <span style="color: #0078D7;"><u><i>Google Ads Account</i></u></span>
+
+## <span style="color: #4169E1;"><u><i>Campaign 1</i></u></span>
+
+### <span style="color: #1E90FF;"><u><i>Ad Group 1A</i></u></span>
+
+#### <span style="color: #4682B4;"><u><i>Keyword</i></u></span>
+
+##### <span style="color: #87CEEB;"><u><i>Landing Page 1A</i></u></span>
+
+### <span style="color: #1E90FF;"><u><i>Ad Group 1B</i></u></span>
+
+#### <span style="color: #4682B4;"><u><i>Ad A</i></u></span>
+
+##### <span style="color: #87CEEB;"><u><i>Landing Page 1B</i></u></span>
+
+#### <span style="color: #4682B4;"><u><i>Ad B</i></u></span>
+
+##### <span style="color: #87CEEB;"><u><i>Landing Page 1B</i></u></span>
+
+## <span style="color: #4169E1;"><u><i>Campaign 2</i></u></span>
+
+### <span style="color: #1E90FF;"><u><i>Ad Group 2A</i></u></span>
+
+#### <span style="color: #4682B4;"><u><i>Keyword</i></u></span>
+
+##### <span style="color: #87CEEB;"><u><i>Landing Page 2A</i></u></span>
+
+### <span style="color: #1E90FF;"><u><i>Ad Group 2B</i></u></span>
+
+#### <span style="color: #4682B4;"><u><i>Ad A</i></u></span>
+
+##### <span style="color: #87CEEB;"><u><i>Landing Page 2B</i></u></span>
+
+#### <span style="color: #4682B4;"><u><i>Ad B</i></u></span>
+
+##### <span style="color: #87CEEB;"><u><i>Landing Page 2B</i></u></span>
+
+---
+
+![Google Ads Anatomy](google_ads_anatomy.PNG)
+
+<style>
+  h1, h2, h3, h4, h5 {
+    color: #0078D7 !important;
+    font-family: Arial, sans-serif;
+  }
+  u, i {
+    text-decoration: underline !important;
+    font-style: italic !important;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+</style>
+
+
 # MasteringWebDevelopment
 MasteringWebDevelopment
 

@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    padding: 50px; /* Margin around the logo as specified */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    font-family: Arial, sans-serif; /* Default sans-serif; adjust if specific font (e.g., Futura) is available */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 100px; /* Plenty of space between cube card and text card to prevent overlap during rotation */
+    position: relative;
+}
+
+.card {
+    padding: 20px; /* Increased padding for more space inside cards */
+    border: 2px solid #ccc; /* Soft gray border for cards */
+    border-radius: 10px; /* Rounded corners for cards */
+    background-color: #fff; /* White background for cards */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for cards */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.cube-card {
+    min-width: 200px; /* Ensure cube card is wide enough for the cube */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-card {
+    min-width: 300px; /* Ensure text card is wide enough for the text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cube-container {
+    perspective: 1000px; /* 3D perspective for the cube */
+}
+
+.cube {
+    position: relative;
+    width: 150px; /* As specified, scalable */
+    height: 150px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease; /* Smooth transition for rotation */
+}
+
+.face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 1; /* Full opacity for bold colors */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff; /* White gap at edges as specified */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for bold effect */
+    border-radius: 10px; /* Rounded corners for each face */
+}
+
+/* Bold, vibrant colors for the cube */
+.front { background-color: #9B59B6; transform: translateZ(75px); } /* Bold Purple */
+.back { background-color: #FF69B4; transform: translateZ(-75px); } /* Bold Pink */
+.right { background-color: #3498DB; transform: translateX(75px) rotateY(90deg); } /* Bold Blue */
+.left { background-color: #E74C3C; transform: translateX(-75px) rotateY(-90deg); } /* Bold Red */
+.top { background-color: #F1C40F; transform: translateY(-75px) rotateX(90deg); } /* Bold Yellow */
+.bottom { background-color: #27AE60; transform: translateY(75px) rotateX(-90deg); } /* Bold Green */
+
+/* 3D depth: Ensure all faces are distinct with slight elevation */
+.face {
+    z-index: 1;
+}
+
+/* Text styling */
+.main-text {
+    color: #953ef5; /* Purple for "GLOBALLY VIRAL" as specified */
+    font-size: 90px; /* Larger font size as requested */
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 2px; /* Even spacing as specified */
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Stronger shadow for bold effect */
+}
+
+.sub-text {
+    color: #4a1e9e; /* Bold dark purple to complement #953ef5 */
+    font-size: 50px; /* Larger but proportional to main text */
+    font-weight: bold; /* Bold weight for emphasis */
+    margin: 10px 0 0; /* 10px gap from main text */
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Stronger shadow for bold effect */
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .logo-container {
+        gap: 50px; /* Reduce space on medium screens to prevent excessive width */
+    }
+
+    .cube {
+        width: 120px;
+        height: 120px;
+    }
+
+    .face {
+        width: 120px;
+        height: 120px;
+        border-radius: 8px; /* Adjust rounded corners for smaller size */
+    }
+
+    .main-text { font-size: 70px; }
+    .sub-text { font-size: 40px; }
+
+    .cube-card { min-width: 150px; }
+    .text-card { min-width: 250px; }
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        gap: 30px; /* Reduced gap for vertical layout */
+        align-items: center;
+    }
+
+    .cube {
+        width: 120px;
+        height: 120px;
+    }
+
+    .face {
+        width: 120px;
+        height: 120px;
+        border-radius: 8px; /* Adjust rounded corners for smaller size */
+    }
+
+    .main-text { font-size: 60px; }
+    .sub-text { font-size: 35px; }
+
+    .cube-card { min-width: 150px; }
+    .text-card { min-width: 200px; }
+}
+
+@media (max-width: 480px) {
+    .cube {
+        width: 90px;
+        height: 90px;
+    }
+
+    .face {
+        width: 90px;
+        height: 90px;
+        border-radius: 6px; /* Adjust rounded corners for smaller size */
+    }
+
+    .main-text { font-size: 40px; }
+    .sub-text { font-size: 25px; }
+
+    .cube-card { min-width: 120px; }
+    .text-card { min-width: 150px; }
+}

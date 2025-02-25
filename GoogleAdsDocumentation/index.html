@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Auction Documentation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            color: #F0E2FF;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            padding: 2rem;
+            background-color: #7F00FF;
+            min-height: 100vh;
+        }
+        h1, h3 {
+            color: #F0E2FF;
+            margin-bottom: 1.5rem;
+        }
+        .content-section {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        ul, ol {
+            padding-left: 2rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .nested-list {
+            padding-left: 2rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center"><b><u><i>Google Ads Auction</i></u></b></h1>
+        
+        <div class="content-section">
+            <p>The Google Ads Auction uses a CPP (Cost Per Click) based model to determine which ads to show.</p>
+        </div>
+
+        <div class="content-section">
+            <h3><b><u><i>What factors determine the actual CPC?</i></u></b></h3>
+            <ol>
+                <li><strong>Bid Amount:</strong> The maximum amount you are willing to pay per click. Competitiveness also plays into the final bid amount.</li>
+                <li><strong>Quality Score:</strong> It is a numeric value on a scale of 1 to 10 that Google assigns to the ad based on the
+                    <ul class="nested-list">
+                        <li>Expected click through rate.</li>
+                        <li>Relevance of the ad.</li>
+                        <li>Landing Page Experience. (How accurate, navigable, informative the landing page is in relationship to the search in Google.)</li>
+                    </ul>
+                </li>
+                <li><strong>Ad Rank:</strong> Calculated from the bid score and quality score and the use of Ad formats and extensions.</li>
+            </ol>
+        </div>
+
+        <div class="content-section">
+            <h3><b><u><i>Setting up bids with Smart Bidding</i></u></b></h3>
+            <p>When using smart bidding strategies, the algorithm sets unique bid individual auctions. It takes the following factors into account:</p>
+            <ol>
+                <li><strong>User Signals & Context:</strong> Location, Device, time of the day, day of week, ad schedule, language, operating system.</li>
+                <li><strong>Behavioral Signals:</strong> Previous interactions, remarketing lists, in-market audiences, custom intent audiences.</li>
+                <li><strong>Historical performance data:</strong> Historical performance data of conversion rate and CTR.</li>
+                <li><strong>Competitive Landscape</strong></li>
+                <li><strong>Bid Strategy Goals:</strong> Target CPA, Target ROAS, maximize conversions, maximize conversion value.</li>
+                <li><strong>Ad Relevance:</strong> Ad relevance and landing page quality/experience.</li>
+                <li><strong>Daily Budget</strong></li>
+            </ol>
+            <p>The number of advertisers bidding on the same keywords affects CPC. Higher competition can drive up CPC as advertisers bid more to secure top positions.</p>
+        </div>
+
+        <div class="content-section">
+            <h3><b><u><i>Understanding Quality Scores</i></u></b></h3>
+            <ol>
+                <li>It is a measure of quality and relevance of your ads, keywords, and landing pages.</li>
+                <li>Influences both your actual CPC and Ad Rank.</li>
+                <li>Components:
+                    <ul class="nested-list">
+                        <li>Expected click-through rate (CTR).</li>
+                        <li>Ad relevance.</li>
+                        <li>Landing page experience.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="content-section" >
+            <h3><b><u><i>The Ad Rank Formula</i></u></b></h3>
+            <p>Ad Rank = Max CPC Bid × Quality Score + (Ad Extensions Impact)</p>
+            <ul>
+                <li>Higher Ad Rank wins the auction.</li>
+                <li>There are minimum ad rank thresholds to enter into the auction.</li>
+                <li>The use of Ad Extensions (sitelinks, callouts, structured snippets, etc) can improve your ad's performance and quality score, potentially lowering your CPC.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-section">
+        <h3><b><u><i>How does the Google Ads Auction Operate?</i></u></b></h3>
+        <h5> Max CPC Bid x Quality Score (+ Ad Extensions and Formats)</h5>
+    </div>
+    <div class="container" role="main" aria-label="Google Ads Account Structure Overview">
+        <h3>The Core Structure and Functionality of a Google Ads Account</h3>
+        <img src="./google_ads_anatomy.PNG" alt="Anatomy of Google Ads" loading="lazy" aria-describedby="image-description">
+        <p id="image-description" class="sr-only">Diagram illustrating the hierarchical structure of a Google Ads account, including campaigns, ad groups, keywords, ads, and landing pages.</p>
+        <ol aria-label="Google Ads Components List">
+            <li><strong>Campaigns: </strong>The top level structure where you set goals, budgets and strategy</li>
+            <li><strong>AD Groups: </strong>Subdivisions within campaigns that group related ads and keywords.</li> 
+            <li><strong>Keywords: </strong>The terms you target to match your ads with user searches.</li>
+            <li><strong>Ads: </strong>The actual content that users see, including text, images, or videos.</li>
+            <li><strong>Budgets: </strong>The amount you're willing to spend on a campaign per day.</li>
+            <li><strong>Bids: </strong>The acount you are willing to pay for each click or impression.</li>
+            <li><strong>Targeting: </strong>The criteria use to define who sees your ads (e.g., location, demographics, interests).</li>
+            <li><strong>Extensions: </strong>Additional information added to ads, like phone numbers or links to specific pages.</li>
+            <li><strong>Performance Metrics: </strong>Key data points such as clicks, impressions, click-through rate(CTR), and conversions that measure the success of your ads.</li>
+            <li><strong>Reports: </strong>Tools to analyze and visualize your campaign performance.</li>
+        </ol>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html> 
