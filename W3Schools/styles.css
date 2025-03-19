@@ -1,0 +1,35 @@
+body {
+    background-color: aqua;
+}
+
+.hrefAttribute {
+    background-color: blue;
+    border-radius: 20px;
+    color: black;
+    font-weight: 900px;
+    align-content: center;
+}
+
+.srcAttribute{
+    background-color: rgb(92, 190, 46);
+    border-radius: 20px;
+    color: black;
+    font-weight: 900px;
+    align-content: center;
+}
+
+.styleAttribute{
+    background-color: rgb(37, 159, 216);
+    border-radius: 20px;
+    color: black;
+    font-weight: 900px;
+    align-content: center;
+}
+
+.titleAttribute{
+    background-color: rgb(185, 126, 58);
+    border-radius: 20px;
+    color: black;
+    font-weight: 900px;
+    align-content: center;
+}
