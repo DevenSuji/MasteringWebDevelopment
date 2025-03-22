@@ -1,0 +1,14 @@
+.container {
+    background-color: #D5E7B5;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 10px;
+    border: 2px solid rgb(31, 182, 202);
+}
+h1 {
+    color: deeppink;
+}
+h2 {
+    color: #640D5F;
+    font-family: cursive;
+}

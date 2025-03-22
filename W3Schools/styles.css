@@ -3,11 +3,12 @@ body {
 }
 
 .hrefAttribute {
-    background-color: blue;
+    background-color: rgb(220, 220, 235);
     border-radius: 20px;
     color: black;
     font-weight: 900px;
     align-content: center;
+    text-align: center;
 }
 
 .srcAttribute{
@@ -16,6 +17,7 @@ body {
     color: black;
     font-weight: 900px;
     align-content: center;
+    text-align: center;
 }
 
 .styleAttribute{
@@ -24,6 +26,8 @@ body {
     color: black;
     font-weight: 900px;
     align-content: center;
+    text-align: center;
+    padding: auto;
 }
 
 .titleAttribute{
@@ -32,4 +36,5 @@ body {
     color: black;
     font-weight: 900px;
     align-content: center;
+    text-align: center;
 }

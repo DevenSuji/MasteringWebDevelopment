@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Container with responsive width, padding, and border */
+        .container {
+            width: 80%;              /* Takes 80% of the viewport width */
+            margin: 0 auto;          /* Centers the container */
+            padding: 2%;             /* Responsive padding based on viewport width */
+            border-radius: 15px;     /* Fixed radius; can be made responsive if desired */
+            background-color: goldenrod;
+            text-align: center;
+            border: solid black 0.2vw; /* Responsive border width */
+            box-sizing: border-box;  /* Includes padding and border in width */
+            transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+        }
+
+        /* Shadow on hover for interactivity */
+        .container:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive image with animations */
+        .container img {
+            max-width: 100%;         /* Scales with container’s content area */
+            height: auto;            /* Maintains aspect ratio */
+            animation: fadeIn 1s ease-in; /* Fade-in on load */
+            transition: transform 0.3s ease; /* Smooth scaling on hover */
+        }
+
+        /* Image scales up on hover */
+        .container a:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Fade-in animation keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <title>Image as a Link</title>
+</head>
+<body>
+    <div class="container">
+        <a href="https://www.globallyviral.com">
+            <img src="../../Assets/Pictures/Nature1.jpg" alt="Globally Viral">
+        </a>
+    </div>
+</body>
+</html>
