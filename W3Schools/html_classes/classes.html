@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #A67B5B;
+        }
+
+        .city {
+            background-color: tomato;
+            color: white;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: cursive;
+            text-align: center;
+        }
+
+        p {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .note {
+            font-size: 120%;
+            color: crimson;
+        }
+    </style>
+
+    <title>HTML Classes</title>
+</head>
+
+<body>
+    <div>
+        <h1>HTML Class Attribute</h1>
+        <p>The HTML class attribute is used to specify a class for an HTML element.</p>
+
+        <p>Multiple HTML elements can share the same class.</p>
+        <h3>The Class Attribute</h3>
+        <p>
+            The class attribute is often used to point to a class name in a style sheet. <br>
+            It can also be used by a JavaScript to access and manipulate elements with the specific class name.
+        </p>
+    </div>
+    <hr>
+    <p>In the following example we have three div elements with a class attribute with the value of "city". <br>
+        All of the three div elements will be styled equally according to the .city style definition in the head
+        section:</p>
+    <div class="city">
+        <h2>London</h2>
+        <p>London is the capital of England.</p>
+    </div>
+
+    <div class="city">
+        <h2>Paris</h2>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <div class="city">
+        <h2>Tokyo</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+    <div>
+        <p> In the following example we have two span elements with a class attribute with the value of "note". <br>
+            Both span elements will be styled equally according to the .note style definition in the head section:
+        </p>
+    </div>
+    <hr>
+    <div>
+        <h1><u>Using Class with Span Element!</u></h1>
+        <h3>My <span class="note">Important</span> Heading</h3>
+        <p>This is some <span class="note">important</span> text.</p>
+    </div>
+    <hr>
+    <h1>Use of the class Attribute in JavaScript</h1>
+    <div>
+        <p>Click the button to hide all elements with class name "city":</p>
+
+        <button onclick="myFunction()">Hide elements</button>
+
+        <h2 class="city">London</h2>
+        <p>London is the capital of England.</p>
+
+        <h2 class="city">Paris</h2>
+        <p>Paris is the capital of France.</p>
+
+        <h2 class="city">Tokyo</h2>
+        <p>Tokyo is the capital of Japan.</p>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementsByClassName("city");
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

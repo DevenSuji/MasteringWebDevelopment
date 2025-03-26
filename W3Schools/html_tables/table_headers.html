@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            /* Consider removing this if you want different widths */
+            /* Add some spacing between tables */
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: center;
+            border-color: crimson;
+        }
+        th {
+            text-align: center;
+        }
+    </style>
+    <title>Table Headers</title>
+</head>
+
+<body>
+    <div>
+        <h1>Horizontal Table</h1>
+        <table style="border: 1px;">
+            <div>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>Jackson</td>
+                    <td>94</td>
+                </tr>
+            </div>
+        </table>
+    </div>
+    <hr>
+    <div>
+        <h1>Vertical Table</h1>
+        <div>
+            <table>
+                <tr>
+                  <th style="color: blue;">Firstname</th>
+                  <td>Jill</td>
+                  <td>Eve</td>
+                </tr>
+                <tr>
+                    <th style="color: blue;">Lastname</th>
+                  <td>Smith</td>
+                  <td>Jackson</td>
+                </tr>
+                <tr>
+                    <th style="color: blue;">Age</th>
+                  <td>94</td>
+                  <td>50</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h1>Header for Multiple Columns</h1>
+        <div>
+            <table>
+                <tr>
+                    <th colspan="2">Name</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>Smith</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Deven</td>
+                    <td>Suji</td>
+                    <td>41</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h1>Table Caption</h1>
+        <div>
+            <table style="width:100%">
+                <caption>Employee Table</caption>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+                <tr>
+                    <td>Deven</td>
+                    <td>Suji</td>
+                </tr>
+                <tr>
+                    <td>Pavithra</td>
+                    <td>Mahesh</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

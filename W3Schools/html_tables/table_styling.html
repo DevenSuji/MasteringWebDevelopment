@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Tables</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #bd4b4b7e;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #cac57b;
+        }
+
+        /* Style for the first table */
+        .table-one {
+            /* Add any specific styles for the first table here */
+        }
+
+        /* Style for the second table with vertical zebra stripes */
+        .table-two {
+            /* No specific border or background for the table itself needed for this effect */
+        }
+
+        .table-two td:nth-child(odd) {
+            background-color: #62745b; /* Light gray for odd columns */
+        }
+
+        .table-two td:nth-child(even) {
+            background-color: #d38a8a; /* White for even columns */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Learning HTML Tables</h1>
+        <hr>
+        <h4>HTML tables allow web developers to arrange data into rows and columns.</h4>
+        <hr>
+        <table class="table-one">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Globally Viral</td>
+                    <td>Deven Suji</td>
+                    <td>India</td>
+                </tr>
+                <tr>
+                    <td>Microsoft</td>
+                    <td>Satya Nadella</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>Sundar Pichai</td>
+                    <td>USA</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <div class="table-container">
+        <table class="table-two">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Laptop</td>
+                    <td>Electronics</td>
+                    <td>$1200</td>
+                    <td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>T-Shirt</td>
+                    <td>Apparel</td>
+                    <td>$25</td>
+                    <td>Out of Stock</td>
+                </tr>
+                <tr>
+                    <td>Coffee Maker</td>
+                    <td>Appliances</td>
+                    <td>$80</td>
+                    <td>In Stock</td>
+                </tr>
+                <tr>
+                    <td>Book</td>
+                    <td>Literature</td>
+                    <td>$15</td>
+                    <td>In Stock</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+</body>
+
+</html>

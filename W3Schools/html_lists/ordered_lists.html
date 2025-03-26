@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordered List</title>
+    <style>
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 2px solid black;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(150, 212, 212, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ordered List</h1>
+    <div></div>
+    <ol>
+        <li>Deven</li>
+        <li>Pavithra</li>
+        <li>Dulli</li>
+        <li>Duggu</li>
+    </ol>
+    </div>
+    <hr>
+    <div>
+        <h3>Ordered HTML List - The Type Attribute</h3>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>type="1"</td>
+                <td>The list items will be numbered with numbers(default)</td>
+            </tr>
+            <tr>
+                <td>type="A"</td>
+                <td>The list items will be numbered with uppercase letters</td>
+            </tr>
+            <tr>
+                <td>type="a"</td>
+                <td>The list items will be numbered with numbers(default)</td>
+            </tr>
+            <tr>
+                <td>type="I</td>
+                <td>The list items will be numbered with numbers(default)</td>
+            </tr>
+            <tr>
+                <td>type="i"</td>
+                <td>The list items will be numbered with numbers(default)</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div>
+        <ol type="A">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ol>
+    </div>
+    <hr>
+    <div>
+        <ol type="a">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ol>
+    </div>
+    <hr>
+    <div>
+        <ol type="I">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ol>
+    </div>
+    <hr>
+    <div>
+        <ol type="i">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ol>
+    </div>
+    <hr>
+    <div>
+        <h3>Control List Counting</h3>
+        <h5>By default, an ordered list will start counting from 1. If you want to start counting from a specified number, you can use the start attribute:</h5>
+        <br>
+        <ol start="50">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ol>
+    </div>
+</body>
+
+</html>

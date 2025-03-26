@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Blocks And Inline Elements</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #4ecdc4;
+        }
+        .highlight {
+            background-color: #ffe66d;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+        hr {
+            border: 2px solid #95e1d3;
+            border-radius: 2px;
+        }
+        .example-box {
+            background-color: #f7fff7;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #95e1d3;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">HTML Blocks And Inline Elements</h1>
+        
+        <div class="mb-4">
+            <p class="lead">
+                Every HTML element has a default display value, depending on what type of element it is. 
+                The two most common display values are <span class="highlight">block</span> and 
+                <span class="highlight">inline</span>.
+            </p>
+        </div>
+
+        <div class="mb-5">
+            <h3>Block Level Elements</h3>
+            <p>A block-level element always starts on a new line, and browsers automatically add some space (a margin) before and after the element.</p>
+            <p>A block-level element takes up the full width available (stretches out to the left and right as far as it can).</p>
+            <p>Two commonly used block elements are: <span class="highlight">paragraph</span> and <span class="highlight">div</span> elements.</p>
+            <p>The <span class="highlight">p</span> element defines a paragraph in an HTML document.</p>
+            <p>The <span class="highlight">div</span> element defines a division or a section in an HTML document.</p>
+            <p>Below is a list of <span class="highlight">block level elements</span> in HTML with their purposes and examples:</p>
+            
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item"><strong>address</strong>: Defines contact information for the author/owner of a document
+                    <div class="example-box"><address>123 Example St, City</address></div></li>
+                <li class="list-group-item"><strong>article</strong>: Defines independent, self-contained content
+                    <div class="example-box"><article>This is a blog post</article></div></li>
+                <li class="list-group-item"><strong>aside</strong>: Defines content aside from the main content
+                    <div class="example-box"><aside>Sidebar content</aside></div></li>
+                <li class="list-group-item"><strong>blockquote</strong>: Defines a section quoted from another source
+                    <div class="example-box"><blockquote>Quoted text</blockquote></div></li>
+                <li class="list-group-item"><strong>canvas</strong>: Used to draw graphics via scripting
+                    <div class="example-box"><canvas width="100" height="100"></canvas></div></li>
+                <li class="list-group-item"><strong>dd</strong>: Defines a description in a description list
+                    <div class="example-box"><dl><dt>Term</dt><dd>Description</dd></dl></div></li>
+                <li class="list-group-item"><strong>div</strong>: Defines a division or section
+                    <div class="example-box"><div>Section content</div></div></li>
+                <li class="list-group-item"><strong>dl</strong>: Defines a description list
+                    <div class="example-box"><dl><dt>Item</dt><dd>Detail</dd></dl></div></li>
+                <li class="list-group-item"><strong>dt</strong>: Defines a term in a description list
+                    <div class="example-box"><dl><dt>Term</dt><dd>Detail</dd></dl></div></li>
+                <li class="list-group-item"><strong>fieldset</strong>: Groups related elements in a form
+                    <div class="example-box"><fieldset><legend>Group</legend>Content</fieldset></div></li>
+                <li class="list-group-item"><strong>figcaption</strong>: Defines a caption for a figure element
+                    <div class="example-box"><figure><figcaption>Caption</figcaption></figure></div></li>
+                <li class="list-group-item"><strong>figure</strong>: Specifies self-contained content
+                    <div class="example-box"><figure>Content</figure></div></li>
+                <li class="list-group-item"><strong>footer</strong>: Defines a footer for a document or section
+                    <div class="example-box"><footer>Footer content</footer></div></li>
+                <li class="list-group-item"><strong>form</strong>: Defines an HTML form for user input
+                    <div class="example-box"><form>Form content</form></div></li>
+                <li class="list-group-item"><strong>h1 to h6</strong>: Defines HTML headings
+                    <div class="example-box"><h2>Heading 2</h2></div></li>
+                <li class="list-group-item"><strong>header</strong>: Defines a header for a document or section
+                    <div class="example-box"><header>Header content</header></div></li>
+                <li class="list-group-item"><strong>hr</strong>: Defines a thematic break
+                    <div class="example-box"><hr></div></li>
+                <li class="list-group-item"><strong>li</strong>: Defines a list item
+                    <div class="example-box"><ul><li>Item</li></ul></div></li>
+                <li class="list-group-item"><strong>main</strong>: Specifies the main content of a document
+                    <div class="example-box"><main>Main content</main></div></li>
+                <li class="list-group-item"><strong>nav</strong>: Defines navigation links
+                    <div class="example-box"><nav>Nav links</nav></div></li>
+                <li class="list-group-item"><strong>noscript</strong>: Defines content for when scripts are not supported
+                    <div class="example-box"><noscript>No script content</noscript></div></li>
+                <li class="list-group-item"><strong>ol</strong>: Defines an ordered list
+                    <div class="example-box"><ol><li>Item 1</li></ol></div></li>
+                <li class="list-group-item"><strong>p</strong>: Defines a paragraph
+                    <div class="example-box"><p>Paragraph text</p></div></li>
+                <li class="list-group-item"><strong>pre</strong>: Defines preformatted text
+                    <div class="example-box"><pre>Preformatted</pre></div></li>
+                <li class="list-group-item"><strong>section</strong>: Defines a section in a document
+                    <div class="example-box"><section>Section content</section></div></li>
+                <li class="list-group-item"><strong>table</strong>: Defines a table
+                    <div class="example-box"><table><tr><td>Cell</td></tr></table></div></li>
+                <li class="list-group-item"><strong>tfoot</strong>: Groups footer content in a table
+                    <div class="example-box"><table><tfoot><tr><td>Footer</td></tr></tfoot></table></div></li>
+                <li class="list-group-item"><strong>ul</strong>: Defines an unordered list
+                    <div class="example-box"><ul><li>Item</li></ul></div></li>
+                <li class="list-group-item"><strong>video</strong>: Defines a video or movie
+                    <div class="example-box"><video width="100"></video></div></li>
+            </ol>
+        </div>
+
+        <hr>
+
+        <div>
+            <h3>Inline Elements</h3>
+            <p>An inline element does not start on a new line.</p>
+            <p>An inline element only takes up as much width as necessary.</p>
+            <p>See the example below:</p>
+            <p class="example-box">This is an inline span <span class="highlight">Hello World</span> element inside a paragraph.</p>
+            <p>Below is a list of <span class="highlight">inline elements</span> in HTML with their purposes and examples:</p>
+            
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item"><strong>a</strong>: Defines a hyperlink
+                    <div class="example-box"><a href="#">Link</a></div></li>
+                <li class="list-group-item"><strong>abbr</strong>: Defines an abbreviation
+                    <div class="example-box"><abbr title="Example">Ex</abbr></div></li>
+                <li class="list-group-item"><strong>acronym</strong>: Defines an acronym (not widely supported)
+                    <div class="example-box"><acronym title="NASA">NASA</acronym></div></li>
+                <li class="list-group-item"><strong>b</strong>: Defines bold text
+                    <div class="example-box"><b>Bold</b></div></li>
+                <li class="list-group-item"><strong>bdo</strong>: Overrides text direction
+                    <div class="example-box"><bdo dir="rtl">Reverse</bdo></div></li>
+                <li class="list-group-item"><strong>big</strong>: Increases text size (deprecated)
+                    <div class="example-box"><big>Big</big></div></li>
+                <li class="list-group-item"><strong>br</strong>: Inserts a line break
+                    <div class="example-box">Line<br>Break</div></li>
+                <li class="list-group-item"><strong>button</strong>: Defines a clickable button
+                    <div class="example-box"><button>Click</button></div></li>
+                <li class="list-group-item"><strong>cite</strong>: Defines a citation
+                    <div class="example-box"><cite>Book Title</cite></div></li>
+                <li class="list-group-item"><strong>code</strong>: Defines computer code
+                    <div class="example-box"><code>x = 5;</code></div></li>
+                <li class="list-group-item"><strong>dfn</strong>: Defines a definition term
+                    <div class="example-box"><dfn>Term</dfn></div></li>
+                <li class="list-group-item"><strong>em</strong>: Defines emphasized text
+                    <div class="example-box"><em>Emphasis</em></div></li>
+                <li class="list-group-item"><strong>i</strong>: Defines italic text
+                    <div class="example-box"><i>Italic</i></div></li>
+                <li class="list-group-item"><strong>img</strong>: Defines an image
+                    <div class="example-box"><img src="../../Assets/Pictures/Nature1.jpg" width="50" alt="example"></div></li>
+                <li class="list-group-item"><strong>input</strong>: Defines an input control
+                    <div class="example-box"><input type="text"></div></li>
+                <li class="list-group-item"><strong>kbd</strong>: Defines keyboard input
+                    <div class="example-box"><kbd>Ctrl</kbd></div></li>
+                <li class="list-group-item"><strong>label</strong>: Defines a label for an input
+                    <div class="example-box"><label>Label</label></div></li>
+                <li class="list-group-item"><strong>map</strong>: Defines an image map
+                    <div class="example-box"><map name="map"></map></div></li>
+                <li class="list-group-item"><strong>object</strong>: Defines an embedded object
+                    <div class="example-box"><object width="50"></object></div></li>
+                <li class="list-group-item"><strong>output</strong>: Defines the result of a calculation
+                    <div class="example-box"><output>Result</output></div></li>
+                <li class="list-group-item"><strong>q</strong>: Defines a short quotation
+                    <div class="example-box"><q>Quote</q></div></li>
+                <li class="list-group-item"><strong>samp</strong>: Defines sample output
+                    <div class="example-box"><samp>Sample</samp></div></li>
+                <li class="list-group-item"><strong>script</strong>: Defines a client-side script
+                    <div class="example-box"><script></script></div></li>
+                <li class="list-group-item"><strong>select</strong>: Defines a drop-down list
+                    <div class="example-box"><select><option>Option</option></select></div></li>
+                <li class="list-group-item"><strong>small</strong>: Defines smaller text
+                    <div class="example-box"><small>Small</small></div></li>
+                <li class="list-group-item"><strong>span</strong>: Defines a section in a document
+                    <div class="example-box"><span>Span</span></div></li>
+                <li class="list-group-item"><strong>strong</strong>: Defines important text
+                    <div class="example-box"><strong>Strong</strong></div></li>
+                <li class="list-group-item"><strong>sub</strong>: Defines subscripted text
+                    <div class="example-box">H<sub>2</sub>O</div></li>
+                <li class="list-group-item"><strong>sup</strong>: Defines superscripted text
+                    <div class="example-box">x<sup>2</sup></div></li>
+                <li class="list-group-item"><strong>textarea</strong>: Defines a multiline input
+                    <div class="example-box"><textarea></textarea></div></li>
+                <li class="list-group-item"><strong>time</strong>: Defines a date/time
+                    <div class="example-box"><time>12:00</time></div></li>
+                <li class="list-group-item"><strong>tt</strong>: Defines teletype text (deprecated)
+                    <div class="example-box"><tt>Typewriter</tt></div></li>
+                <li class="list-group-item"><strong>var</strong>: Defines a variable
+                    <div class="example-box"><var>x</var></div></li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

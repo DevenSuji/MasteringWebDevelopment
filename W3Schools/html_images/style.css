@@ -1,0 +1,27 @@
+body {
+    background-image: url(../../Assets/Pictures/Nature1.jpg);
+    /*  If the background image is smaller than the element, the image will repeat itself, horizontally and vertically, until it reaches the end of the element.
+    To avoid the background image from repeating itself, set the background-repeat property to no-repeat.
+    */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100% 100%;
+    /* 
+    Background Cover
+        If you want the background image to cover the entire element, you can set the background-size property to cover.
+
+        Also, to make sure the entire element is always covered, set the background-attachment property to fixed:
+
+        This way, the background image will cover the entire element, with no stretching (the image will keep its original proportions):
+    */
+    background-attachment: fixed;
+}
+h1 {
+    color: aliceblue;
+}
+h2 {
+    color: aqua;
+}
+p {
+    color: aqua;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    tr:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+    }
+
+    th:nth-child(even),
+    td:nth-child(even) {
+        background-color: rgba(150, 212, 212, 0.4);
+    }
+</style>
+</head>
+
+<body>
+    <div>
+        <h3>Combine Vertical and Horizontal Zebra Stripes</h3>
+        <p>You can combine the styling from the two examples above and you will have stripes on every other row and
+            every other column.</p>
+        <br>
+        <p>If you use a transparent color you will get an overlapping effect.</p>
+        <br>
+        <p>Use an rgba() color to specify the transparency of the color:</p>
+    </div>
+    <h2>Striped Table</h2>
+    <p>For zebra-striped tables, use the nth-child() selector and add a background-color to all even (or odd) table
+        rows:</p>
+
+    <table style="width:100%">
+        <tr>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SAT</th>
+            <th>SUN</th>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

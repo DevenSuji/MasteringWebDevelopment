@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: cursive;
+        }
+
+        .countries {
+            display: flex; /* Enable Flexbox */
+            width: 100%; /* Full width of the parent */
+            gap: 10px; /* Optional: space between flex items */
+        }
+
+        .countries > div {
+            flex: 1; /* Each child takes equal space */
+            box-sizing: border-box; /* Include padding and border in width */
+        }
+
+        .England {
+            background-color: gold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            font-family: cursive;
+            border-radius: 15px;
+        }
+
+        .Sweden {
+            background-color: #C30E59;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            font-family: cursive;
+            border-radius: 15px;
+        }
+
+        .NewZealand {
+            background-color: #36BA98;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center-;
+            font-family: cursive;
+            border-radius: 15px;
+        }
+    </style>
+    <title>Aligning Div Elements Side By Side</title>
+</head>
+<body>
+    <h1>Aligning Div Elements Side By Side</h1>
+    <div>
+        <p><strong>There are different methods for aligning elements side by side, all include some CSS styling. We
+                will look at the most common methods:</strong></p>
+        <p>The div element has no required attributes, but style, class and id are common.</p>
+        <p>Please see the below example</p>
+    </div>
+    <hr>
+    <div class="countries">
+        <div class="England">
+            <h2>England</h2>
+            <p><strong><u>Oldest Monarchy</u></strong></p>
+            <p><strong><u>Birthplace of Shakespeare</u></strong></p>
+        </div>
+        <div class="Sweden">
+            <h2>Sweden</h2>
+            <p><strong><u>Fika Culture</u></strong></p>
+            <p><strong><u>Right to Roam</u></strong></p>
+        </div>
+        <div class="NewZealand">
+            <h2>NewZealand</h2>
+            <p><strong><u>More Sheep Than People</u></strong></p>
+            <p><strong><u>Three Official Languages</u></strong></p>
+        </div>
+    </div>
+</body>
+</html>

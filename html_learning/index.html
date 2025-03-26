@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tags Quick Reference</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .tag-entry {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        .tag-entry h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #005a9c;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .tag-entry h2 code {
+            font-family: monospace;
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 1em;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        /* Basic layout for structure examples */
+        header, footer, nav, section, article, aside {
+            border: 1px dashed #aaa;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        nav { background-color: #e0e0e0; }
+        header { background-color: #c0c0c0; }
+        footer { background-color: #c0c0c0; }
+        section { background-color: #f0f0f0; }
+        article { background-color: #fafafa; margin-left: 15px; }
+        aside { background-color: #e8e8e8; }
+    </style>
+</head>
+<body>
+
+    <h1>HTML Tags Quick Reference</h1>
+    <p>A basic list of common HTML tags and simple code examples.</p>
+    <p><em>Note: This list covers many common tags but is not absolutely exhaustive. It demonstrates basic usage; tags often have many more attributes and complex uses.</em></p>
+
+    <div class="tag-entry">
+        <h2><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> - Headings</h2>
+        <pre><code class="language-html">&lt;h1&gt;Level 1 Heading&lt;/h1&gt;
+&lt;h2&gt;Level 2 Heading&lt;/h2&gt;
+&lt;h3&gt;Level 3 Heading&lt;/h3&gt;
+&lt;h4&gt;Level 4 Heading&lt;/h4&gt;
+&lt;h5&gt;Level 5 Heading&lt;/h5&gt;
+&lt;h6&gt;Level 6 Heading&lt;/h6&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;p&gt;</code> - Paragraph</h2>
+        <pre><code class="language-html">&lt;p&gt;This is a paragraph of text. It can contain multiple sentences.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;br&gt;</code> - Line Break</h2>
+        <pre><code class="language-html">This text is on one line.&lt;br&gt;This text is on the next line.</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;hr&gt;</code> - Horizontal Rule</h2>
+        <pre><code class="language-html">&lt;p&gt;Some content above the line.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Some content below the line.&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;pre&gt;</code> - Preformatted Text</h2>
+        <pre><code class="language-html">&lt;pre&gt;
+  This text preserves
+  whitespace and line breaks
+  exactly as written.
+&lt;/pre&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;blockquote&gt;</code> - Block Quotation</h2>
+        <pre><code class="language-html">&lt;blockquote cite="http://example.com"&gt;
+  This is a long quotation indented from the surrounding text.
+&lt;/blockquote&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;a&gt;</code> - Anchor (Hyperlink)</h2>
+        <pre><code class="language-html">&lt;a href="https://www.google.com" target="_blank"&gt;Visit Google&lt;/a&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;strong&gt;</code> &amp; <code>&lt;b&gt;</code> - Importance / Bring Attention</h2>
+        <pre><code class="language-html">&lt;p&gt;This text is &lt;strong&gt;very important&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This text is &lt;b&gt;bolded&lt;/b&gt; for attention.&lt;/p&gt;</code></pre>
+    </div>
+
+     <div class="tag-entry">
+        <h2><code>&lt;em&gt;</code> &amp; <code>&lt;i&gt;</code> - Emphasis / Idiomatic Text</h2>
+        <pre><code class="language-html">&lt;p&gt;You &lt;em&gt;must&lt;/em&gt; see this.&lt;/p&gt;
+&lt;p&gt;The term &lt;i&gt;HTML&lt;/i&gt; stands for HyperText Markup Language.&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;code&gt;</code> - Code Fragment</h2>
+        <pre><code class="language-html">&lt;p&gt;Use the &lt;code&gt;console.log()&lt;/code&gt; function.&lt;/p&gt;</code></pre>
+    </div>
+
+     <div class="tag-entry">
+        <h2><code>&lt;span&gt;</code> - Generic Inline Container</h2>
+        <pre><code class="language-html">&lt;p&gt;Part of this text is &lt;span style="color: blue;"&gt;blue&lt;/span&gt;.&lt;/p&gt;</code></pre>
+    </div>
+
+     <div class="tag-entry">
+        <h2><code>&lt;sub&gt;</code> &amp; <code>&lt;sup&gt;</code> - Subscript & Superscript</h2>
+        <pre><code class="language-html">&lt;p&gt;Water is H&lt;sub&gt;2&lt;/sub&gt;O.&lt;/p&gt;
+&lt;p&gt;E = mc&lt;sup&gt;2&lt;/sup&gt;.&lt;/p&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;ul&gt;</code> &amp; <code>&lt;li&gt;</code> - Unordered List</h2>
+        <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+  &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;ol&gt;</code> &amp; <code>&lt;li&gt;</code> - Ordered List</h2>
+        <pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;Step one&lt;/li&gt;
+  &lt;li&gt;Step two&lt;/li&gt;
+  &lt;li&gt;Step three&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> - Description List</h2>
+        <pre><code class="language-html">&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;img&gt;</code> - Image</h2>
+        <pre><code class="language-html">&lt;img src="placeholder.jpg" alt="A placeholder image" width="100" height="50"&gt;
+&lt;!-- Replace 'placeholder.jpg' with a real image URL --&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;audio&gt;</code> - Audio</h2>
+        <pre><code class="language-html">&lt;audio controls src="audiofile.mp3"&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+&lt;!-- Replace 'audiofile.mp3' with a real audio file URL --&gt;</code></pre>
+    </div>
+
+     <div class="tag-entry">
+        <h2><code>&lt;video&gt;</code> - Video</h2>
+        <pre><code class="language-html">&lt;video controls width="300" src="videofile.mp4"&gt;
+  Your browser does not support the video element.
+&lt;/video&gt;
+&lt;!-- Replace 'videofile.mp4' with a real video file URL --&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code> - Table</h2>
+        <pre><code class="language-html">&lt;table border="1"&gt;
+  &lt;caption&gt;Simple Data Table&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header 1&lt;/th&gt;
+      &lt;th&gt;Header 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Row 1, Cell 1&lt;/td&gt;
+      &lt;td&gt;Row 1, Cell 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Row 2, Cell 1&lt;/td&gt;
+      &lt;td&gt;Row 2, Cell 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;form&gt;</code> &amp; Basic Inputs</h2>
+        <pre><code class="language-html">&lt;form action="/submit-page" method="post"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;User Info:&lt;/legend&gt;
+
+    &lt;label for="username"&gt;Username:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="text" id="username" name="username" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="password"&gt;Password:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="password" id="password" name="password" required&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="bio"&gt;Bio:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea id="bio" name="bio" rows="4" cols="30"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;label for="color"&gt;Favorite Color:&lt;/label&gt;
+    &lt;select id="color" name="color"&gt;
+      &lt;option value="red"&gt;Red&lt;/option&gt;
+      &lt;option value="blue"&gt;Blue&lt;/option&gt;
+      &lt;option value="green"&gt;Green&lt;/option&gt;
+    &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;input type="checkbox" id="subscribe" name="subscribe" value="yes"&gt;
+    &lt;label for="subscribe"&gt;Subscribe to newsletter&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;input type="radio" id="option1" name="choice" value="opt1"&gt;
+    &lt;label for="option1"&gt;Option 1&lt;/label&gt;&lt;br&gt;
+    &lt;input type="radio" id="option2" name="choice" value="opt2"&gt;
+    &lt;label for="option2"&gt;Option 2&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;input type="reset" value="Reset Form"&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;div&gt;</code> - Generic Block Container</h2>
+        <pre><code class="language-html">&lt;div style="border: 1px solid red; padding: 10px;"&gt;
+  This is a div element, often used for layout and styling.
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2>Semantic Structure: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code></h2>
+        <pre><code class="language-html">&lt;body&gt; &lt;!-- Styles in head make borders visible --&gt;
+
+  &lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Main Content Section&lt;/h2&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Article Title&lt;/h3&gt;
+        &lt;p&gt;Article content goes here...&lt;/p&gt;
+      &lt;/article&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Another Article&lt;/h3&gt;
+        &lt;p&gt;More content...&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+
+    &lt;aside&gt;
+      &lt;h3&gt;Sidebar&lt;/h3&gt;
+      &lt;p&gt;Related links or ads.&lt;/p&gt;
+    &lt;/aside&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2025 Website Name&lt;/p&gt;
+  &lt;/footer&gt;
+
+&lt;/body&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2><code>&lt;details&gt;</code> &amp; <code>&lt;summary&gt;</code> - Disclosure Widget</h2>
+        <pre><code class="language-html">&lt;details&gt;
+  &lt;summary&gt;Click to see details&lt;/summary&gt;
+  &lt;p&gt;Here are the hidden details that are revealed when you click.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+    </div>
+
+    <div class="tag-entry">
+        <h2>Metadata Examples (Typically in <code>&lt;head&gt;</code>)</h2>
+        <pre><code class="language-html">&lt;!-- Sets character encoding --&gt;
+&lt;meta charset="UTF-8"&gt;
+
+&lt;!-- Sets viewport for responsive design --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+&lt;!-- Page description for SEO --&gt;
+&lt;meta name="description" content="A brief description of the page."&gt;
+
+&lt;!-- Link to external CSS file --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+
+&lt;!-- Page Title (in browser tab) --&gt;
+&lt;title&gt;My Web Page&lt;/title&gt;
+
+&lt;!-- Inline CSS --&gt;
+&lt;style&gt;
+  p { color: navy; }
+&lt;/style&gt;
+
+&lt;!-- Link to external JavaScript file --&gt;
+&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+</body>
+</html>
