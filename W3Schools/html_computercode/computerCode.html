@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Text Formatting Elements Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Same Tailwind config as the RWD docs for consistent styling
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace']
+                    },
+                    colors: {
+                        // Using the same vibrant color palette
+                        'brand-primary': { // Blue shades
+                            light: '#60a5fa',
+                            DEFAULT: '#2563eb',
+                            dark: '#1e40af',
+                        },
+                        'brand-secondary': { // Teal/Cyan shades
+                            light: '#5eead4',
+                            DEFAULT: '#0d9488',
+                            dark: '#134e4a',
+                        },
+                        'brand-accent': { // Pink/Rose shades
+                            light: '#f9a8d4',
+                            DEFAULT: '#ec4899',
+                            dark: '#9f1239',
+                        },
+                        'brand-neutral': { // Gray shades for text/backgrounds
+                            lightest: '#f8fafc', // slate-50
+                            light: '#f1f5f9',   // slate-100
+                            medium: '#64748b',  // slate-500
+                            dark: '#1e293b',    // slate-800
+                            darkest: '#0f172a', // slate-900
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-gradient-to-br from-brand-neutral-light via-white to-brand-secondary/10 text-brand-neutral-dark font-sans antialiased">
+
+    <aside id="sidebar"
+        class="bg-brand-neutral-darkest text-white fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 shadow-lg"
+        aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto">
+            <h3 class="text-2xl font-extrabold text-white mb-6 pl-2">HTML Elements</h3>
+            <ul class="space-y-1 font-medium">
+                <li>
+                    <a href="#kbd"
+                        class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <i data-lucide="keyboard" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="ms-3">&lt;kbd&gt; (Keyboard Input)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#samp"
+                        class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <i data-lucide="terminal" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">&lt;samp&gt; (Sample Output)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#code"
+                        class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <i data-lucide="code-2" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">&lt;code&gt; (Code Snippet)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#var"
+                        class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <i data-lucide="variable" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">&lt;var&gt; (Variable)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#pre"
+                        class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <i data-lucide="file-text" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">&lt;pre&gt; (Preformatted)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <button id="sidebar-toggle" type="button"
+        class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-brand-neutral-medium rounded-lg sm:hidden hover:bg-brand-neutral-light focus:outline-none focus:ring-2 focus:ring-brand-neutral-light fixed top-2 left-2 z-50 bg-white/80 backdrop-blur-sm shadow">
+        <span class="sr-only">Open sidebar</span>
+        <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+
+    <main class="sm:ml-64 p-6 md:p-10">
+        <div class="max-w-5xl mx-auto">
+            <article class="bg-white rounded-xl shadow-xl p-6 md:p-10 border border-brand-neutral-light/50">
+
+                <h1
+                    class="text-4xl lg:text-5xl font-extrabold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+                    HTML Text Formatting Elements</h1>
+
+                <section id="kbd" class="mb-12">
+                    <h2
+                        class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">
+                        &lt;kbd&gt;: Keyboard Input</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;kbd&gt;</code> element represents user input,
+                        typically keyboard input, but also potentially other input methods like voice commands.</p>
+                    <p class="text-brand-neutral-dark mb-4">Browsers usually render text within <code>&lt;kbd&gt;</code>
+                        tags in the system's default monospace font.</p>
+                    <div
+                        class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                        <p class="text-brand-neutral-dark mb-2">To copy text, select it and press <kbd>Ctrl</kbd> +
+                            <kbd>C</kbd>.
+                        </p>
+                        <p class="text-brand-neutral-dark">To save the file, press <kbd>Ctrl</kbd> + <kbd>S</kbd>.</p>
+                        <p class="text-brand-neutral-dark">You can also nest <code>&lt;kbd&gt;</code> elements to
+                            represent sequences or individual keys within a larger input:</p>
+                        <p class="text-brand-neutral-dark">Press <kbd><kbd>Alt</kbd>+<kbd>F4</kbd></kbd> to close the
+                            window.</p>
+                    </div>
+                    <pre
+                        class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;p&gt;Press &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt; to copy.&lt;/p&gt;
+&lt;p&gt;Press &lt;kbd&gt;&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;F4&lt;/kbd&gt;&lt;/kbd&gt; to close.&lt;/p&gt;</code></pre>
+                </section>
+
+                <section id="samp" class="mb-12">
+                    <h2
+                        class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">
+                        &lt;samp&gt;: Sample Output</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;samp&gt;</code> element represents sample or
+                        quoted output from a computer program or system.</p>
+                    <p class="text-brand-neutral-dark mb-4">Like <code>&lt;kbd&gt;</code>, browsers typically render
+                        this in a monospace font.</p>
+                    <div
+                        class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                        <p class="text-brand-neutral-dark">If you enter an invalid command, the system might respond
+                            with:</p>
+                        <p><samp>Command not found.</samp></p>
+                        <p class="text-brand-neutral-dark">After running the script, the console showed:</p>
+                        <p><samp>Process finished with exit code 0</samp></p>
+                    </div>
+                    <pre
+                        class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;p&gt;The program outputted: &lt;samp&gt;File saved successfully.&lt;/samp&gt;&lt;/p&gt;</code></pre>
+                </section>
+
+                <section id="code" class="mb-12">
+                    <h2
+                        class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">
+                        &lt;code&gt;: Code Snippet</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;code&gt;</code> element represents a fragment
+                        of computer code. This can be an inline snippet or a larger block (often used within a
+                        <code>&lt;pre&gt;</code> element).
+                    </p>
+                    <p class="text-brand-neutral-dark mb-4">Browsers render this in a monospace font by default.</p>
+                    <div
+                        class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example (Inline):</h3>
+                        <p class="text-brand-neutral-dark">The HTML <code>&lt;span&gt;</code> element is an inline
+                            container.</p>
+                        <p class="text-brand-neutral-dark">In JavaScript, use the <code>console.log()</code> method for
+                            debugging.</p>
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3 mt-4">Example (Block - inside
+                            <code>&lt;pre&gt;</code>):
+                        </h3>
+                        <p class="text-brand-neutral-dark">See the <a href="#pre"
+                                class="text-brand-primary hover:underline"><code>&lt;pre&gt;</code> section</a> for how
+                            to display blocks of code while preserving formatting.</p>
+                    </div>
+                    <pre
+                        class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;p&gt;Use the &lt;code&gt;getElementById()&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+                </section>
+
+                <section id="var" class="mb-12">
+                    <h2
+                        class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">
+                        &lt;var&gt;: Variable</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;var&gt;</code> element represents a variable.
+                        This could be a variable in a mathematical expression or programming context, an identifier, a
+                        function parameter, etc.</p>
+                    <p class="text-brand-neutral-dark mb-4">Browsers typically render text within
+                        <code>&lt;var&gt;</code> tags in an italicized font.
+                    </p>
+                    <div
+                        class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                        <p class="text-brand-neutral-dark">The area of a rectangle is calculated as <var>length</var> ×
+                            <var>width</var>.
+                        </p>
+                        <p class="text-brand-neutral-dark">In the function <code>calculate(x, y)</code>, <var>x</var>
+                            and <var>y</var> are parameters.</p>
+                        <p class="text-brand-neutral-dark">Consider the equation: <var>a</var>x<sup>2</sup> +
+                            <var>b</var>x + <var>c</var> = 0.
+                        </p>
+                    </div>
+                    <pre
+                        class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;p&gt;The variable &lt;var&gt;userCount&lt;/var&gt; stores the number of users.&lt;/p&gt;
+&lt;p&gt;Equation: &lt;var&gt;E&lt;/var&gt; = &lt;var&gt;m&lt;/var&gt;&lt;var&gt;c&lt;/var&gt;&lt;sup&gt;2&lt;/sup&gt;.&lt;/p&gt;</code></pre>
+                </section>
+
+                <section id="pre" class="mb-12">
+                    <h2
+                        class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">
+                        &lt;pre&gt;: Preformatted Text</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;pre&gt;</code> element defines preformatted
+                        text. Text within a <code>&lt;pre&gt;</code> element is displayed in a fixed-width font (usually
+                        monospace), and it preserves both spaces and line breaks exactly as they are written in the HTML
+                        source code.</p>
+                    <p class="text-brand-neutral-dark mb-4">This makes it ideal for displaying blocks of code, ASCII
+                        art, or any text where whitespace and line endings are significant.</p>
+                    <p class="text-brand-neutral-dark mb-4">It's common practice to wrap the code inside a
+                        <code>&lt;pre&gt;</code> element with a <code>&lt;code&gt;</code> element for semantic
+                        correctness (indicating the content *is* code).
+                    </p>
+                    <div
+                        class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example (Code Block):</h3>
+                        <pre
+                            class="bg-brand-neutral-dark text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-inner"><code class="language-python"># Simple Python function
+def add(a, b):
+    # This comment has leading spaces
+    result = a + b
+    return result
+
+print(add(5, 3))  # Output: 8</code></pre>
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3 mt-4">Example (ASCII Art):</h3>
+                        <pre
+                            class="bg-brand-neutral-dark text-brand-neutral-lightest font-mono text-xs p-4 rounded-lg overflow-x-auto shadow-inner leading-tight">
+  _______
+ /       \
+/         \
+|  O   O  |
+ \  ---  /
+  -------
+                         </pre>
+                    </div>
+                    <pre
+                        class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;pre&gt;&lt;code class="language-css"&gt;
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;
+Text in a pre element
+is displayed in a fixed-width
+font, and it preserves
+both     spaces and
+line breaks.
+&lt;/pre&gt;</code></pre>
+                </section>
+
+            </article>
+
+            <footer
+                class="mt-16 pt-8 border-t border-brand-neutral-light/80 text-center text-brand-neutral-medium text-sm">
+                <p>&copy; <span id="year"></span> HTML Text Formatting Docs. Styled with Tailwind CSS.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        // Simple script for mobile sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+
+        if (sidebarToggle && sidebar) {
+            sidebarToggle.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent click from bubbling to document
+                sidebar.classList.toggle('translate-x-0');
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+            // Close sidebar when clicking a link inside it (on mobile)
+            sidebar.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 640) { // sm breakpoint
+                        sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
+                    }
+                });
+            });
+        }
+
+        // Close sidebar if clicking outside of it on mobile
+        document.addEventListener('click', (event) => {
+            const isClickInsideSidebar = sidebar.contains(event.target);
+            const isClickOnToggle = sidebarToggle.contains(event.target);
+
+            if (!isClickInsideSidebar && !isClickOnToggle && window.innerWidth < 640) {
+                if (!sidebar.classList.contains('-translate-x-full')) { // Only close if open
+                    sidebar.classList.add('-translate-x-full');
+                    sidebar.classList.remove('translate-x-0');
+                }
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>

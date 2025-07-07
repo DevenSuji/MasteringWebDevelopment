@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Design Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace']
+                    },
+                    colors: {
+                        // New vibrant color palette
+                        'brand-primary': { // Blue shades
+                            light: '#60a5fa',
+                            DEFAULT: '#2563eb',
+                            dark: '#1e40af',
+                        },
+                        'brand-secondary': { // Teal/Cyan shades
+                            light: '#5eead4',
+                            DEFAULT: '#0d9488',
+                            dark: '#134e4a',
+                        },
+                        'brand-accent': { // Pink/Rose shades
+                             light: '#f9a8d4',
+                            DEFAULT: '#ec4899',
+                            dark: '#9f1239',
+                        },
+                        'brand-neutral': { // Gray shades for text/backgrounds
+                            lightest: '#f8fafc', // slate-50
+                            light: '#f1f5f9',   // slate-100
+                            medium: '#64748b',  // slate-500
+                            dark: '#1e293b',    // slate-800
+                            darkest: '#0f172a', // slate-900
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    </head>
+<body class="bg-gradient-to-br from-brand-neutral-light via-white to-brand-secondary/10 text-brand-neutral-dark font-sans antialiased">
+
+    <aside id="sidebar" class="bg-brand-neutral-darkest text-white fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 shadow-lg" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto">
+             <h3 class="text-2xl font-extrabold text-white mb-6 pl-2">Responsive Web Design Docs</h3>
+            <ul class="space-y-1 font-medium">
+                <li>
+                    <a href="#introduction" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <i data-lucide="book-open" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="ms-3">Introduction</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#viewport" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="maximize" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Viewport Meta Tag</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#fluid-grids" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="layout-grid" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Fluid Grids</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#flexible-images" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="image" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Flexible Images</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#responsive-text" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="type" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Responsive Text</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#media-queries" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="move-horizontal" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Media Queries</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#mobile-first" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="smartphone" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Mobile-First Design</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#breakpoints" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="ruler" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Breakpoints</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#testing" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                         <i data-lucide="check-check" class="w-5 h-5 text-gray-400 group-hover:text-white"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Testing</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <button id="sidebar-toggle" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-brand-neutral-medium rounded-lg sm:hidden hover:bg-brand-neutral-light focus:outline-none focus:ring-2 focus:ring-brand-neutral-light fixed top-2 left-2 z-50 bg-white/80 backdrop-blur-sm shadow">
+        <span class="sr-only">Open sidebar</span>
+        <i data-lucide="menu" class="w-6 h-6"></i>
+     </button>
+
+    <main class="sm:ml-64 p-6 md:p-10">
+        <div class="max-w-5xl mx-auto">
+            <article class="bg-white rounded-xl shadow-xl p-6 md:p-10 border border-brand-neutral-light/50">
+
+                <section id="introduction" class="mb-12">
+                    <h1 class="text-4xl lg:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Introduction to Responsive Web Design</h1>
+                    <p class="text-lg lg:text-xl leading-relaxed text-brand-neutral-medium mb-6">Responsive Web Design (Responsive Web Design) is an approach that makes web pages look great on all devices, from small phones to large desktops. It ensures usability and satisfaction by adapting content, design, and performance.</p>
+                    <p class="text-brand-neutral-dark mb-4">Instead of separate mobile sites, uses a single codebase that adjusts layout based on screen size, platform, and orientation.</p>
+                    <div class="bg-brand-primary/5 border-l-4 border-brand-primary p-4 rounded-r-lg mb-6">
+                        <h3 class="text-lg font-semibold text-brand-primary-dark mb-2">Core Components:</h3>
+                        <ul class="list-disc list-inside ml-4 space-y-2 text-brand-neutral-dark">
+                            <li><strong>Viewport Meta Tag:</strong> Controls layout on mobile browsers.</li>
+                            <li><strong>Fluid Grids:</strong> Uses relative units (%) for layout widths.</li>
+                            <li><strong>Flexible Media:</strong> Scales images/videos within containers.</li>
+                            <li><strong>Media Queries:</strong> Applies CSS based on device characteristics (like width).</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="viewport" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Setting the Viewport</h2>
+                    <p class="text-brand-neutral-dark mb-4">The viewport is the user's visible area. To ensure proper scaling on mobile, add this meta tag to your HTML <code>&lt;head&gt;</code>:</p>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto mb-4 shadow-md"><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                    <ul class="list-none space-y-3 mb-4">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-secondary mr-2 mt-1 shrink-0"></i>
+                            <span class="text-brand-neutral-dark"><code>width=device-width</code>: Sets page width to device screen width.</span>
+                        </li>
+                        <li class="flex items-start">
+                             <i data-lucide="check-circle" class="w-5 h-5 text-brand-secondary mr-2 mt-1 shrink-0"></i>
+                            <span class="text-brand-neutral-dark"><code>initial-scale=1.0</code>: Sets the initial zoom level to 100%.</span>
+                        </li>
+                    </ul>
+                    <p class="text-sm italic text-brand-neutral-medium">Without this tag, mobile browsers often zoom out, making text unreadable.</p>
+                </section>
+
+                <section id="fluid-grids" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Fluid Grids</h2>
+                    <p class="text-brand-neutral-dark mb-4">Fluid grids use relative units (<code>%</code>, <code>vw</code>) or modern layout modules (Flexbox, Grid) instead of fixed pixels. This allows layouts to resize proportionally.</p>
+                    <div class="bg-brand-neutral-lightest p-6 rounded-lg border border-brand-neutral-light shadow-sm">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example (Conceptual CSS):</h3>
+                        <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto mb-4 shadow-md"><code class="language-css">/* Using percentages */
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+.column { width: 48%; float: left; margin-right: 4%; } /* Old float method */
+.column:last-child { margin-right: 0; }
+
+/* Modern approach using Flexbox */
+.flex-container { display: flex; gap: 1rem; }
+.flex-item { flex: 1; } /* Each item takes equal space */</code></pre>
+                        <p class="text-sm text-brand-neutral-medium mt-4">Modern CSS <strong class="font-semibold text-brand-secondary-dark">Flexbox</strong> and <strong class="font-semibold text-brand-secondary-dark">CSS Grid</strong> are preferred for creating fluid layouts easily.</p>
+                    </div>
+                </section>
+
+                <section id="flexible-images" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Flexible Images & Media</h2>
+                    <p class="text-brand-neutral-dark mb-6">Images and media must also be flexible to prevent breaking the layout on smaller screens.</p>
+
+                    <div class="mb-8 p-6 bg-gradient-to-r from-brand-primary/5 to-brand-accent/5 rounded-lg border border-brand-neutral-light">
+                        <h3 class="text-xl font-semibold text-brand-primary-dark mb-3">Using <code>max-width: 100%</code> (Recommended)</h3>
+                        <p class="text-brand-neutral-dark mb-4">This scales the image down if needed, but prevents it from scaling up beyond its original size, preserving quality.</p>
+                        <img src="https://placehold.co/600x250/2563eb/white?text=Image+max-width:100%25" alt="Placeholder Image with max-width 100%" class="max-w-full h-auto rounded-lg shadow-md border border-brand-neutral-light">
+                        <pre class="mt-4 bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-css">img {
+  max-width: 100%; /* Scale down, but not up */
+  height: auto;    /* Maintain aspect ratio */
+  display: block;  /* Remove extra space below */
+}</code></pre>
+                    </div>
+
+                    <div class="p-6 bg-gradient-to-r from-brand-secondary/5 to-brand-accent/5 rounded-lg border border-brand-neutral-light">
+                        <h3 class="text-xl font-semibold text-brand-secondary-dark mb-3">Using the <code>&lt;picture&gt;</code> Element</h3>
+                        <p class="text-brand-neutral-dark mb-4">Provides art direction – specify different images based on screen size, resolution, or format support.</p>
+                         <picture class="block border border-brand-neutral-light rounded-lg overflow-hidden shadow-md">
+                            <source srcset="https://placehold.co/400x300/ec4899/white?text=Small+(<600px)" media="(max-width: 600px)">
+                            <source srcset="https://placehold.co/800x300/0d9488/white?text=Medium+(<1000px)" media="(max-width: 1000px)">
+                            <source srcset="https://placehold.co/1200x300/2563eb/white?text=Large+(1000px+)">
+                            <img src="https://placehold.co/1200x300/2563eb/white?text=Default+Large" alt="Responsive Placeholder Image" class="w-full h-auto block">
+                        </picture>
+                        <pre class="mt-4 bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;picture&gt;
+  &lt;source srcset="small.jpg" media="(max-width: 600px)"&gt;
+  &lt;source srcset="medium.jpg" media="(max-width: 1000px)"&gt;
+  &lt;img src="large.jpg" alt="Description"&gt; &lt;!-- Fallback --&gt;
+&lt;/picture&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section id="responsive-text" class="mb-12">
+                     <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Responsive Text Size</h2>
+                     <p class="text-brand-neutral-dark mb-6">Text size needs to adapt for readability across devices.</p>
+
+                     <div class="mb-8 p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm">
+                         <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Using Viewport Units (vw)</h3>
+                         <p class="text-brand-neutral-dark mb-4"><code>vw</code> units scale text directly with the browser width. Best used cautiously, often with <code>clamp()</code>.</p>
+                         <h1 style="font-size: clamp(2rem, 10vw, 6rem); line-height: 1;" class="text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-primary break-words my-4">Hello!</h1>
+                         <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-css">h1 {
+  /* font-size: 10vw; /* Can become too big or small */
+  font-size: clamp(2rem, 10vw, 6rem); /* Min, Preferred, Max */
+}</code></pre>
+                     </div>
+
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm">
+                         <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Using Relative Units (rem) + Media Queries</h3>
+                         <p class="text-brand-neutral-dark mb-4">A robust method: set base font size on <code>html</code> and use <code>rem</code> units. Adjust base size in media queries.</p>
+                         <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-css">html { font-size: 16px; } /* Base */
+body { font-size: 1rem; } /* 16px */
+h1 { font-size: 2.5rem; } /* 40px */
+
+@media (max-width: 768px) {
+  html { font-size: 14px; } /* Adjust base on smaller screens */
+  /* h1 is now 2.5 * 14px = 35px */
+}</code></pre>
+                     </div>
+                </section>
+
+                <section id="media-queries" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Media Queries</h2>
+                    <p class="text-brand-neutral-dark mb-4">Media queries apply CSS rules conditionally, usually based on viewport width, enabling different layouts or styles for different screen sizes.</p>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto mb-6 shadow-md"><code class="language-css">/* Apply only if screen width is 600px or more */
+@media screen and (min-width: 600px) {
+  .element { background-color: lightblue; }
+}
+
+/* Apply only for printing */
+@media print {
+  body { color: black; }
+  .no-print { display: none; }
+}</code></pre>
+
+                    <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3 mt-6">Example: Layout Change</h3>
+                    <p class="text-brand-neutral-dark mb-4">These boxes stack vertically by default (mobile-first). On screens 768px+, a media query changes the layout to horizontal.</p>
+                    <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm">
+                        <div class="flex flex-col md:flex-row gap-4"> {/* Uses Tailwind's md: prefix for the media query */}
+                            <div class="flex-1 p-4 rounded-lg text-center font-semibold text-white shadow bg-gradient-to-br from-brand-primary to-brand-accent">Box 1</div>
+                            <div class="flex-1 p-4 rounded-lg text-center font-semibold text-white shadow bg-gradient-to-br from-brand-secondary to-brand-primary">Box 2</div>
+                            <div class="flex-1 p-4 rounded-lg text-center font-semibold text-white shadow bg-gradient-to-br from-brand-accent to-brand-secondary">Box 3</div>
+                        </div>
+                    </div>
+                     <pre class="mt-4 bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;!-- Using Tailwind classes for media query --&gt;
+&lt;div class="flex flex-col md:flex-row gap-4"&gt;
+  &lt;div class="flex-1 ..."&gt;Box 1&lt;/div&gt;
+  &lt;div class="flex-1 ..."&gt;Box 2&lt;/div&gt;
+  &lt;div class="flex-1 ..."&gt;Box 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </section>
+
+                 <section id="mobile-first" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Mobile-First vs. Desktop-First</h2>
+                    <p class="text-brand-neutral-dark mb-4">Two strategies for applying media queries:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-brand-primary/10 rounded-lg border border-brand-primary/30">
+                             <h3 class="text-xl font-semibold text-brand-primary-dark mb-2">Mobile-First (Recommended)</h3>
+                             <p class="text-brand-neutral-dark">Style for mobile by default. Use <code>min-width</code> media queries to add complexity for larger screens. Prioritizes mobile experience.</p>
+                        </div>
+                         <div class="p-6 bg-brand-secondary/10 rounded-lg border border-brand-secondary/30">
+                             <h3 class="text-xl font-semibold text-brand-secondary-dark mb-2">Desktop-First</h3>
+                             <p class="text-brand-neutral-dark">Style for desktop by default. Use <code>max-width</code> media queries to simplify for smaller screens.</p>
+                        </div>
+                    </div>
+                     <pre class="mt-6 bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-css">/* Mobile-First Example */
+.element { /* Base (mobile) styles */ }
+@media (min-width: 768px) { /* Tablet overrides */ }
+@media (min-width: 1024px) { /* Desktop overrides */ }</code></pre>
+                </section>
+
+                <section id="breakpoints" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Common Breakpoints</h2>
+                    <p class="text-brand-neutral-dark mb-4">Breakpoints are widths where media queries trigger changes. While design-dependent, common ranges exist. Frameworks like Tailwind provide defaults:</p>
+                    <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm">
+                        <ul class="list-disc list-inside ml-4 space-y-2 text-brand-neutral-dark font-mono">
+                             <li><code>sm</code>: <span class="font-sans text-brand-neutral-medium">640px</span></li>
+                             <li><code>md</code>: <span class="font-sans text-brand-neutral-medium">768px</span></li>
+                             <li><code>lg</code>: <span class="font-sans text-brand-neutral-medium">1024px</span></li>
+                             <li><code>xl</code>: <span class="font-sans text-brand-neutral-medium">1280px</span></li>
+                             <li><code>2xl</code>: <span class="font-sans text-brand-neutral-medium">1536px</span></li>
+                        </ul>
+                         <p class="text-sm italic text-brand-neutral-medium mt-4">Tip: Set breakpoints where your content needs them, not based on specific devices.</p>
+                    </div>
+                </section>
+
+                 <section id="flexbox-grid" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Flexbox & CSS Grid</h2>
+                    <p class="text-brand-neutral-dark mb-4">Modern CSS layout modules crucial for Responsive Web Design:</p>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-brand-primary/10 rounded-lg border border-brand-primary/30">
+                             <h3 class="text-xl font-semibold text-brand-primary-dark mb-2">Flexbox</h3>
+                             <p class="text-brand-neutral-dark">Ideal for 1-dimensional layouts (rows OR columns), alignment, and space distribution.</p>
+                        </div>
+                         <div class="p-6 bg-brand-secondary/10 rounded-lg border border-brand-secondary/30">
+                             <h3 class="text-xl font-semibold text-brand-secondary-dark mb-2">CSS Grid</h3>
+                             <p class="text-brand-neutral-dark">Perfect for 2-dimensional layouts (rows AND columns), complex page structures.</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-brand-neutral-dark">Both are inherently responsive and simplify creating complex layouts compared to older methods.</p>
+                </section>
+
+                <section id="testing" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Testing Responsive Designs</h2>
+                    <p class="text-brand-neutral-dark mb-4">Crucial for ensuring your site works well everywhere. Methods include:</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm">
+                         <ul class="list-disc list-inside ml-4 space-y-3 text-brand-neutral-dark">
+                            <li><strong>Browser Resizing:</strong> Simple manual check.</li>
+                            <li><strong>Browser DevTools:</strong> Simulate devices, resolutions, touch. (Press F12!)</li>
+                            <li><strong>Online Simulators:</strong> Quick previews (accuracy varies).</li>
+                            <li><strong>Real Devices:</strong> Most reliable method (test on actual phones/tablets).</li>
+                            <li><strong>Cross-Browser Testing Tools:</strong> Cloud services like BrowserStack for wide coverage.</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </article>
+
+            <footer class="mt-16 pt-8 border-t border-brand-neutral-light/80 text-center text-brand-neutral-medium text-sm">
+                <p>&copy; <span id="year"></span> Responsive Web Design Docs. Styled with Tailwind CSS.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        // Simple script for mobile sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+
+        if (sidebarToggle && sidebar) {
+            sidebarToggle.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent click from bubbling to document
+                sidebar.classList.toggle('translate-x-0');
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+             // Close sidebar when clicking a link inside it (on mobile)
+             sidebar.querySelectorAll('a').forEach(link => {
+                 link.addEventListener('click', () => {
+                     if (window.innerWidth < 640) { // sm breakpoint
+                        sidebar.classList.add('-translate-x-full');
+                        sidebar.classList.remove('translate-x-0');
+                     }
+                 });
+             });
+        }
+
+         // Close sidebar if clicking outside of it on mobile
+         document.addEventListener('click', (event) => {
+             const isClickInsideSidebar = sidebar.contains(event.target);
+             const isClickOnToggle = sidebarToggle.contains(event.target);
+
+             if (!isClickInsideSidebar && !isClickOnToggle && window.innerWidth < 640) {
+                 if (!sidebar.classList.contains('-translate-x-full')) { // Only close if open
+                     sidebar.classList.add('-translate-x-full');
+                     sidebar.classList.remove('translate-x-0');
+                 }
+             }
+         });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

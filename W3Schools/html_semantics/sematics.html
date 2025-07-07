@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Semantic Elements Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Same Tailwind config as before
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace']
+                    },
+                    colors: {
+                        'brand-primary': { light: '#60a5fa', DEFAULT: '#2563eb', dark: '#1e40af' },
+                        'brand-secondary': { light: '#5eead4', DEFAULT: '#0d9488', dark: '#134e4a' },
+                        'brand-accent': { light: '#f9a8d4', DEFAULT: '#ec4899', dark: '#9f1239' },
+                        'brand-neutral': { lightest: '#f8fafc', light: '#f1f5f9', medium: '#64748b', dark: '#1e293b', darkest: '#0f172a' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .layout-diagram-box {
+            border: 1px solid #64748b; /* brand-neutral-medium */
+            padding: 0.5rem 1rem;
+            text-align: center;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.875rem;
+            color: #1e293b; /* brand-neutral-dark */
+            background-color: rgba(241, 245, 249, 0.5); /* brand-neutral-light with alpha */
+        }
+        /* Style for the details arrow rotation */
+        details[open] > summary .details-arrow { transform: rotate(90deg); }
+        details summary .details-arrow { transition: transform 0.2s; } /* Add transition */
+        /* Removed unused icon filter styles */
+    </style>
+</head>
+<body class="bg-gradient-to-br from-brand-neutral-light via-white to-brand-secondary/10 text-brand-neutral-dark font-sans antialiased">
+
+    <aside id="sidebar" class="bg-brand-neutral-darkest text-white fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 shadow-lg" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto">
+             <h3 class="text-2xl font-extrabold text-white mb-6 pl-2">Semantic HTML</h3>
+            <ul class="space-y-1 font-medium">
+                <li>
+                    <a href="#introduction" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        <span class="ms-0">Introduction</span> </a>
+                </li>
+                 <li>
+                    <a href="#semantic-list" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M15 6l-4 4-4-4"/><path d="M15 12l-4 4-4-4"/><path d="M15 18l-4 4-4-4"/><path d="M5 6h14"/><path d="M5 12h14"/><path d="M5 18h14"/></svg>
+                        <span class="ms-0">Semantic Elements List</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#layout-diagram" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                        <span class="ms-0">Layout Example</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#section" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+                        <span class="ms-0">&lt;section&gt;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#article" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2Zm0 0h16"/><path d="M14 6v4h-4"/><path d="M14 10h4"/><path d="M14 14h4"/><path d="M14 18h4"/><path d="M6 14h4"/><path d="M6 18h4"/></svg>
+                        <span class="ms-0">&lt;article&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#nesting-elements" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        <span class="ms-0">Nesting Elements</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#header" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
+                        <span class="ms-0">&lt;header&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#footer" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m8 12 4 4 4-4"/><path d="M12 8v8"/></svg>
+                        <span class="ms-0">&lt;footer&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#nav" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="m12 2 7 19-7-4-7 4 7-19z"/></svg>
+                        <span class="ms-0">&lt;nav&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#aside" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></svg>
+                        <span class="ms-0">&lt;aside&gt;</span>
+                    </a>
+                 </li>
+                 <li>
+                    <a href="#figure-figcaption" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                        <span class="ms-0">&lt;figure&gt; & &lt;figcaption&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#details-summary" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m8 10 4 4 4-4"/></svg>
+                        <span class="ms-0">&lt;details&gt; & &lt;summary&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#main" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/></svg>
+                        <span class="ms-0">&lt;main&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#mark" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><path d="M12 12v-1"/><path d="M12 17v-1"/><path d="M12 7V6"/><path d="M4 15h16"/><path d="M18 15v2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-2"/><path d="M18 9V7a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2"/></svg>
+                        <span class="ms-0">&lt;mark&gt;</span>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#time" class="flex items-center p-2 text-gray-300 rounded-lg hover:bg-brand-neutral-dark hover:text-white group transition-colors duration-150">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-3"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span class="ms-0">&lt;time&gt;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <button id="sidebar-toggle" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-brand-neutral-medium rounded-lg sm:hidden hover:bg-brand-neutral-light focus:outline-none focus:ring-2 focus:ring-brand-neutral-light fixed top-2 left-2 z-50 bg-white/80 backdrop-blur-sm shadow">
+        <span class="sr-only">Open sidebar</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+     </button>
+
+    <main class="sm:ml-64 p-6 md:p-10">
+        <div class="max-w-5xl mx-auto">
+            <article class="bg-white rounded-xl shadow-xl p-6 md:p-10 border border-brand-neutral-light/50">
+
+                <h1 class="text-4xl lg:text-5xl font-extrabold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">HTML Semantic Elements</h1>
+
+                <section id="introduction" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">What are Semantic Elements?</h2>
+                    <p class="text-lg lg:text-xl leading-relaxed text-brand-neutral-medium mb-6">Semantic elements in HTML are elements with inherent meaning. They clearly describe their purpose to both the browser and the developer, improving accessibility, SEO, and code readability.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="p-6 bg-red-50 rounded-lg border border-red-200">
+                             <h3 class="text-xl font-semibold text-red-700 mb-2 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2 inline-block"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Non-Semantic Examples</h3>
+                             <p class="text-red-900">Elements like <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are purely presentational containers. They tell you nothing about the content they hold.</p>
+                        </div>
+                         <div class="p-6 bg-green-50 rounded-lg border border-green-200">
+                             <h3 class="text-xl font-semibold text-green-700 mb-2 flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2 inline-block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Semantic Examples</h3>
+                             <p class="text-green-900">Elements like <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;table&gt;</code>, and <code>&lt;form&gt;</code> clearly define their content's role.</p>
+                        </div>
+                    </div>
+                     <p class="text-brand-neutral-dark mb-4">Using semantic elements appropriately is crucial for building well-structured, accessible, and maintainable web pages.</p>
+                </section>
+
+                 <section id="semantic-list" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Common Semantic Elements</h2>
+                    <p class="text-brand-neutral-dark mb-4">HTML5 introduced several semantic elements to define different parts of a web page, replacing generic <code>&lt;div&gt;</code> tags with meaningful alternatives:</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                         <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-2 list-none p-0">
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;article&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;aside&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;details&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;figcaption&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;figure&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;footer&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;header&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;main&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;mark&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;nav&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;section&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;summary&gt;</code></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-2 text-brand-primary"><path d="m9 18 6-6-6-6"/></svg><code>&lt;time&gt;</code></li>
+                        </ul>
+                    </div>
+                    <p class="text-brand-neutral-dark mb-4">Instead of relying on <code>&lt;div id="header"&gt;</code> or <code>&lt;div class="nav"&gt;</code>, we can now use <code>&lt;header&gt;</code> and <code>&lt;nav&gt;</code> directly.</p>
+                </section>
+
+                 <section id="layout-diagram" class="mb-12">
+                     <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Typical Semantic Layout</h2>
+                     <p class="text-brand-neutral-dark mb-4">This diagram illustrates how common semantic elements structure a typical webpage:</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4 flex justify-center">
+                         <div class="w-full max-w-xs border-2 border-brand-neutral-dark rounded-lg overflow-hidden">
+                             <div class="layout-diagram-box rounded-t-md rounded-b-none">&lt;header&gt;</div>
+                             <div class="layout-diagram-box border-t-0 rounded-none">&lt;nav&gt;</div>
+                             <div class="flex border-t-0">
+                                 <div class="w-2/3 border-r border-brand-neutral-medium">
+                                     <div class="layout-diagram-box h-24 flex items-center justify-center rounded-tl-none rounded-tr-none rounded-br-none rounded-bl-none">&lt;section&gt;</div>
+                                     <div class="layout-diagram-box border-t-0 rounded-tl-none rounded-tr-none rounded-br-none rounded-bl-md">&lt;article&gt;</div>
+                                 </div>
+                                 <div class="w-1/3 flex items-center justify-center layout-diagram-box rounded-tl-none rounded-tr-none rounded-br-none rounded-bl-none">&lt;aside&gt;</div>
+                             </div>
+                             <div class="layout-diagram-box border-t-0 rounded-b-md rounded-t-none">&lt;footer&gt;</div>
+                         </div>
+                     </div>
+                      <p class="text-sm italic text-brand-neutral-medium text-center">This diagram visually represents the structure described in your `semantic.PNG` image.</p>
+                </section>
+
+                <section id="section" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;section&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;section&gt;</code> element defines a thematic grouping of content within a document, typically (but not always) with its own heading.</p>
+                    <p class="text-brand-neutral-dark mb-4">Think of it as a chapter, an introduction, a set of news items, or contact information. It groups related content together.</p>
+                    <p class="text-brand-neutral-dark mb-4">Use <code>&lt;section&gt;</code> when the content represents a distinct part of the document's outline. Don't use it as a generic container; that's what <code>&lt;div&gt;</code> is for.</p>
+                    <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                        <section class="mb-4 p-4 border border-dashed border-brand-neutral-medium rounded">
+                            <h4 class="text-lg font-semibold text-brand-neutral-dark mb-2">About WWF</h4>
+                            <p class="text-sm text-brand-neutral-dark">The World Wide Fund for Nature (WWF) is an international organization working on issues regarding the conservation, research and restoration of the environment...</p>
+                        </section>
+                        <section class="p-4 border border-dashed border-brand-neutral-medium rounded">
+                             <h4 class="text-lg font-semibold text-brand-neutral-dark mb-2">WWF's Panda Symbol</h4>
+                             <p class="text-sm text-brand-neutral-dark">The Panda has become the symbol of WWF. The well-known panda logo originated from a panda named Chi Chi...</p>
+                        </section>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;section&gt;
+  &lt;h2&gt;Chapter 1: Introduction&lt;/h2&gt;
+  &lt;p&gt;This chapter introduces the main concepts...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+  &lt;h2&gt;Chapter 2: Core Ideas&lt;/h2&gt;
+  &lt;p&gt;Building upon the introduction...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                </section>
+
+                <section id="article" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;article&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;article&gt;</code> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication).</p>
+                    <p class="text-brand-neutral-dark mb-4">Think of forum posts, blog entries, newspaper articles, user comments, or interactive widgets. If you could syndicate it as a standalone piece, it's likely an <code>&lt;article&gt;</code>.</p>
+                     <p class="text-brand-neutral-dark mb-4">An <code>&lt;article&gt;</code> should typically have its own heading.</p>
+                    <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                        <article class="mb-4 p-4 border border-dashed border-brand-neutral-medium rounded">
+                            <h4 class="text-lg font-semibold text-brand-neutral-dark mb-2">Blog Post Title</h4>
+                             <p class="text-sm text-brand-neutral-dark mb-1">Published on <time datetime="2025-04-03">April 3, 2025</time></p>
+                            <p class="text-sm text-brand-neutral-dark">This is the content of the blog post, discussing various interesting topics...</p>
+                            <footer><p class="text-xs text-brand-neutral-medium mt-2">Posted by John Doe</p></footer>
+                        </article>
+                         <article class="p-4 border border-dashed border-brand-neutral-medium rounded">
+                            <h4 class="text-lg font-semibold text-brand-neutral-dark mb-2">User Comment</h4>
+                            <p class="text-sm text-brand-neutral-dark">I found this article very helpful! Thanks for sharing.</p>
+                            <footer><p class="text-xs text-brand-neutral-medium mt-2">Comment by Jane Smith</p></footer>
+                        </article>
+                    </div>
+                     <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;article class="blog-post"&gt;
+  &lt;h2&gt;My Journey into Web Development&lt;/h2&gt;
+  &lt;p&gt;It all started with a simple HTML page...&lt;/p&gt;
+  &lt;!-- More content --&gt;
+  &lt;footer&gt;
+    &lt;p&gt;Published: &lt;time datetime="2025-01-15"&gt;Jan 15, 2025&lt;/time&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+                </section>
+
+                 <section id="nesting-elements" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">Nesting &lt;article&gt; & &lt;section&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">You can nest <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> elements. The key is understanding their semantic difference:</p>
+                     <ul class="list-disc list-inside ml-4 space-y-2 mb-4 text-brand-neutral-dark">
+                        <li><code>&lt;article&gt;</code>: Standalone, complete piece of content.</li>
+                        <li><code>&lt;section&gt;</code>: Thematic grouping within a larger context.</li>
+                     </ul>
+                      <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example 1: Sections within an Article</h3>
+                         <p class="text-brand-neutral-dark mb-2 text-sm italic">A single blog post (article) divided into logical parts (sections).</p>
+                        <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;article&gt;
+  &lt;h2&gt;Comprehensive Guide to CSS Grid&lt;/h2&gt;
+  &lt;section&gt;
+    &lt;h3&gt;Introduction to Grid Concepts&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/section&gt;
+  &lt;section&gt;
+    &lt;h3&gt;Grid Container Properties&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example 2: Articles within a Section</h3>
+                         <p class="text-brand-neutral-dark mb-2 text-sm italic">A page section listing multiple, independent blog summaries (articles).</p>
+                        <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;section&gt;
+  &lt;h2&gt;Latest Blog Posts&lt;/h2&gt;
+  &lt;article&gt;
+    &lt;h3&gt;Post Title 1&lt;/h3&gt;
+    &lt;p&gt;Summary of post 1...&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    &lt;h3&gt;Post Title 2&lt;/h3&gt;
+    &lt;p&gt;Summary of post 2...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section id="header" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;header&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;header&gt;</code> element represents introductory content, typically a group of introductory or navigational aids.</p>
+                    <p class="text-brand-neutral-dark mb-4">It may contain some heading elements (<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code>) but could also contain a logo, search form, author name, etc.</p>
+                    <p class="text-brand-neutral-dark mb-4">You can use <code>&lt;header&gt;</code> at the top of the entire page, or as the header for a specific <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example (Page Header):</h3>
+                         <header class="p-4 border border-dashed border-brand-neutral-medium rounded bg-brand-primary/10">
+                             <h1 class="text-2xl font-bold text-brand-primary-dark">My Awesome Website</h1>
+                             <p class="text-sm text-brand-primary">Your tagline here!</p>
+                             {/* A nav element often goes inside a page header */}
+                         </header>
+                         <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3 mt-4">Example (Article Header):</h3>
+                          <article class="border border-dashed border-brand-neutral-medium rounded">
+                             <header class="p-4 bg-brand-secondary/10">
+                                 <h2 class="text-xl font-semibold text-brand-secondary-dark">Article Title</h2>
+                                 <p class="text-xs text-brand-secondary">By Author Name</p>
+                             </header>
+                             <div class="p-4">
+                                <p class="text-sm text-brand-neutral-dark">Article content starts here...</p>
+                             </div>
+                         </article>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;!-- Page Header --&gt;
+&lt;header&gt;
+  &lt;img src="logo.png" alt="Logo"&gt;
+  &lt;h1&gt;Website Name&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;!-- Article Header --&gt;
+&lt;article&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Post Title&lt;/h2&gt;
+    &lt;p&gt;Published: &lt;time datetime="2025-04-03"&gt;April 3, 2025&lt;/time&gt;&lt;/p&gt;
+  &lt;/header&gt;
+  &lt;p&gt;Article content...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                </section>
+
+                 <section id="footer" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;footer&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;footer&gt;</code> element represents a footer for its nearest sectioning content (like <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;aside&gt;</code>) or sectioning root (like <code>&lt;body&gt;</code>).</p>
+                    <p class="text-brand-neutral-dark mb-4">A footer typically contains information about its section such as the author, copyright data, or links to related documents.</p>
+                    <p class="text-brand-neutral-dark mb-4">Contact information within a <code>&lt;footer&gt;</code> should be wrapped in an <code>&lt;address&gt;</code> element.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example (Page Footer):</h3>
+                         <footer class="p-4 border border-dashed border-brand-neutral-medium rounded bg-brand-neutral-dark text-brand-neutral-lightest">
+                             <p class="text-sm">&copy; 2025 My Website. All rights reserved.</p>
+                             <address class="text-xs not-italic mt-2">
+                                 Contact: <a href="mailto:info@example.com" class="text-brand-primary-light hover:underline">info@example.com</a>
+                             </address>
+                         </footer>
+                         <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3 mt-4">Example (Article Footer):</h3>
+                          <article class="border border-dashed border-brand-neutral-medium rounded p-4">
+                             <h2 class="text-lg font-semibold text-brand-neutral-dark mb-2">Article Title</h2>
+                             <p class="text-sm text-brand-neutral-dark mb-4">Article content...</p>
+                             <footer class="pt-2 border-t border-dashed border-brand-neutral-medium">
+                                 <p class="text-xs text-brand-neutral-medium">Tags: html, semantics</p>
+                             </footer>
+                         </article>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;!-- Page Footer --&gt;
+&lt;footer&gt;
+  &lt;p&gt;Copyright &copy; 2025&lt;/p&gt;
+  &lt;p&gt;&lt;a href="/about"&gt;About Us&lt;/a&gt; | &lt;a href="/contact"&gt;Contact&lt;/a&gt;&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;!-- Article Footer --&gt;
+&lt;article&gt;
+  ... content ...
+  &lt;footer&gt;
+    &lt;p&gt;Author: John Doe&lt;/p&gt;
+    &lt;p&gt;Related links: &lt;a href="..."&gt;Link 1&lt;/a&gt;&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+                </section>
+
+                 <section id="nav" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;nav&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;nav&gt;</code> element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents.</p>
+                    <p class="text-brand-neutral-dark mb-4">Common examples include menus, tables of contents, and indexes. Not all groups of links need to be in a <code>&lt;nav&gt;</code> element – only major navigation blocks.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                         <nav class="p-4 border border-dashed border-brand-neutral-medium rounded bg-brand-primary/10" aria-label="Main Navigation">
+                             <ul class="flex space-x-4">
+                                 <li><a href="/" class="text-brand-primary hover:underline font-medium">Home</a></li>
+                                 <li><a href="/about" class="text-brand-primary hover:underline font-medium">About</a></li>
+                                 <li><a href="/services" class="text-brand-primary hover:underline font-medium">Services</a></li>
+                                 <li><a href="/contact" class="text-brand-primary hover:underline font-medium">Contact</a></li>
+                             </ul>
+                         </nav>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;nav aria-label="Primary navigation"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="/home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/blog"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    <p class="text-sm italic text-brand-neutral-medium mt-4">Using <code>aria-label</code> helps assistive technologies identify the purpose of different navigation blocks if you have more than one.</p>
+                </section>
+
+                <section id="aside" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;aside&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;aside&gt;</code> element represents a portion of a document whose content is only indirectly related to the document's main content.</p>
+                    <p class="text-brand-neutral-dark mb-4">Asides are frequently presented as sidebars or call-out boxes. They might contain related links, author biography, advertisements, or profile information.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                         <div class="flex flex-col md:flex-row gap-6">
+                             <div class="flex-grow">
+                                 <h4 class="text-lg font-semibold text-brand-neutral-dark mb-2">Main Content Area</h4>
+                                 <p class="text-sm text-brand-neutral-dark">This is the primary content of the page or article...</p>
+                             </div>
+                             <aside class="md:w-1/3 p-4 border border-dashed border-brand-neutral-medium rounded bg-brand-secondary/10 shrink-0">
+                                 <h5 class="font-semibold text-brand-secondary-dark mb-2">Related Links</h5>
+                                 <ul class="list-disc list-inside text-sm space-y-1">
+                                     <li><a href="#" class="text-brand-secondary hover:underline">Link 1</a></li>
+                                     <li><a href="#" class="text-brand-secondary hover:underline">Link 2</a></li>
+                                 </ul>
+                                 <h5 class="font-semibold text-brand-secondary-dark mb-2 mt-4">Advert</h5>
+                                 <p class="text-xs text-brand-secondary">Check out this amazing product!</p>
+                             </aside>
+                         </div>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;article&gt;
+  &lt;h2&gt;Article Title&lt;/h2&gt;
+  &lt;p&gt;Main article content...&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;aside&gt;
+  &lt;h3&gt;About the Author&lt;/h3&gt;
+  &lt;p&gt;John Doe is a web developer...&lt;/p&gt;
+  &lt;h3&gt;Related Posts&lt;/h3&gt;
+  &lt;ul&gt;...&lt;/ul&gt;
+&lt;/aside&gt;</code></pre>
+                </section>
+
+                <section id="figure-figcaption" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;figure&gt; & &lt;figcaption&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;figure&gt;</code> element represents self-contained content, potentially with an optional caption, which is specified using the <code>&lt;figcaption&gt;</code> element.</p>
+                    <p class="text-brand-neutral-dark mb-4">The figure, its caption, and its contents are referenced as a single unit from the main flow of the document. It's often used for images, illustrations, diagrams, code snippets, or quotes that are referenced in the main text.</p>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;figcaption&gt;</code> is optional and can appear before or after the content within the <code>&lt;figure&gt;</code>.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                         <figure class="max-w-md mx-auto border border-dashed border-brand-neutral-medium p-2 rounded">
+                            <img src="https://placehold.co/400x200/ec4899/white?text=Figure+Content+(Image)" alt="Placeholder Image" class="w-full h-auto rounded-sm">
+                            <figcaption class="text-center text-sm text-brand-neutral-medium mt-2 italic">
+                                Fig. 1 - A placeholder image demonstrating the figure element.
+                            </figcaption>
+                         </figure>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;figure&gt;
+  &lt;img src="image.jpg" alt="Description of image"&gt;
+  &lt;figcaption&gt;Figure 1: A descriptive caption for the image.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;pre&gt;&lt;code&gt;
+  // Code example as figure content
+  console.log('Hello');
+  &lt;/code&gt;&lt;/pre&gt;
+  &lt;figcaption&gt;Listing 1: JavaScript hello world example.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                </section>
+
+                 <section id="details-summary" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;details&gt; & &lt;summary&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;details&gt;</code> element creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state.</p>
+                    <p class="text-brand-neutral-dark mb-4">A <code>&lt;summary&gt;</code> element must be provided as the first child, which serves as the summary or label for the rest of the <code>&lt;details&gt;</code> element's contents. Clicking the summary toggles the visibility of the other content.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                         <details class="border border-dashed border-brand-neutral-medium rounded p-3 mb-3">
+                             <summary class="font-semibold text-brand-primary cursor-pointer hover:text-brand-primary-dark list-none flex items-center">
+                                 <i data-lucide="chevron-right" class="w-4 h-4 mr-1 inline-block transition-transform duration-200 details-arrow"></i> Click to see details
+                             </summary>
+                             <div class="mt-2 pl-5 text-sm text-brand-neutral-dark">
+                                 <p>This is the hidden content that appears when you click the summary above. It can contain paragraphs, lists, or any other HTML content.</p>
+                             </div>
+                         </details>
+                         <details open class="border border-dashed border-brand-neutral-medium rounded p-3"> {/* Starts open */}
+                             <summary class="font-semibold text-brand-primary cursor-pointer hover:text-brand-primary-dark list-none flex items-center">
+                                <i data-lucide="chevron-right" class="w-4 h-4 mr-1 inline-block transition-transform duration-200 details-arrow"></i> More Information (Starts Open)
+                             </summary>
+                             <div class="mt-2 pl-5 text-sm text-brand-neutral-dark">
+                                 <p>You can use the <code>open</code> attribute to make the details visible by default.</p>
+                             </div>
+                         </details>
+                         </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;details&gt;
+  &lt;summary&gt;Copyright Information&lt;/summary&gt;
+  &lt;p&gt;&copy; 2025 Example Corp. All rights reserved.&lt;/p&gt;
+  &lt;p&gt;Contact us for licensing details.&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;!-- Starts open --&gt;
+&lt;details open&gt;
+  &lt;summary&gt;Release Notes&lt;/summary&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Version 1.1: Fixed bug X.&lt;/li&gt;
+    &lt;li&gt;Version 1.0: Initial release.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/details&gt;</code></pre>
+                </section>
+
+                 <section id="main" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;main&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;main&gt;</code> element represents the dominant content of the <code>&lt;body&gt;</code> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.</p>
+                    <p class="text-brand-neutral-dark mb-4">Content within <code>&lt;main&gt;</code> should be unique to the document, excluding content that is repeated across documents such as site logos, navigation links, copyright information, sidebars, etc. (these belong in <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;aside&gt;</code>).</p>
+                    <p class="text-brand-neutral-dark mb-4">A document must not have more than one <code>&lt;main&gt;</code> element.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Conceptual Structure:</h3>
+                         <div class="border border-dashed border-brand-neutral-medium rounded p-4 text-center text-sm">
+                             <div class="p-2 bg-brand-primary/10 border border-brand-primary/30 rounded mb-2">&lt;header&gt; (Site Header, Nav) &lt;/header&gt;</div>
+                             <div class="p-6 bg-green-50 border border-green-200 rounded mb-2 font-medium text-green-800">&lt;main&gt; (Unique Page Content Here) &lt;/main&gt;</div>
+                             <div class="p-2 bg-brand-neutral-dark/10 border border-brand-neutral-dark/30 rounded">&lt;footer&gt; (Copyright, Site Links) &lt;/footer&gt;</div>
+                         </div>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;body&gt;
+  &lt;header&gt;
+    &lt;!-- Logo, site title, main navigation --&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;h1&gt;Page Title&lt;/h1&gt;
+    &lt;article&gt;
+      &lt;!-- Main content specific to this page --&gt;
+    &lt;/article&gt;
+    &lt;aside&gt;
+      &lt;!-- Sidebar related to main content (if not site-wide) --&gt;
+    &lt;/aside&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;!-- Copyright, contact info, secondary links --&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+                </section>
+
+                 <section id="mark" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;mark&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;mark&gt;</code> element represents text which is marked or highlighted for reference or notation purposes, due to its relevance or importance in the particular context.</p>
+                    <p class="text-brand-neutral-dark mb-4">Think of highlighting text in a quote to draw attention to it, or highlighting search terms in results. Browsers typically render <code>&lt;mark&gt;</code> with a yellow background.</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                        <p class="text-brand-neutral-dark">Search results for "semantic HTML":</p>
+                        <p class="text-brand-neutral-dark mt-2">The document discusses various <mark class="bg-yellow-200 px-1 rounded">semantic HTML</mark> elements like &lt;article&gt; and &lt;nav&gt;. Using <mark class="bg-yellow-200 px-1 rounded">semantic HTML</mark> improves accessibility.</p>
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;p&gt;Do not forget to buy &lt;mark&gt;milk&lt;/mark&gt; today.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  He said, &lt;q&gt;It was the &lt;mark&gt;best of times&lt;/mark&gt;, it was the &lt;mark&gt;worst of times&lt;/mark&gt;...&lt;/q&gt;
+&lt;/blockquote&gt;</code></pre>
+                </section>
+
+                 <section id="time" class="mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-bold mt-10 mb-4 pb-2 border-b border-brand-secondary/30 text-brand-secondary-dark">&lt;time&gt;</h2>
+                    <p class="text-brand-neutral-dark mb-4">The <code>&lt;time&gt;</code> element represents a specific period in time or a precise date in the Gregorian calendar.</p>
+                    <p class="text-brand-neutral-dark mb-4">It can include the optional <code>datetime</code> attribute to translate the date or time into a machine-readable format, allowing for better processing by user agents (e.g., for calendar integration or search engine indexing).</p>
+                     <div class="p-6 bg-brand-neutral-lightest rounded-lg border border-brand-neutral-light shadow-sm mb-4">
+                        <h3 class="text-xl font-semibold text-brand-neutral-darkest mb-3">Example:</h3>
+                        <p class="text-brand-neutral-dark">The event will take place on <time datetime="2025-10-26">October 26th</time>.</p>
+                        <p class="text-brand-neutral-dark">We open daily from <time datetime="09:00">9 AM</time> to <time datetime="17:00">5 PM</time>.</p>
+                        <p class="text-brand-neutral-dark">This article was published <time datetime="2025-04-03T11:30:00Z">earlier today</time>.</p> {/* Z indicates UTC */}
+                    </div>
+                    <pre class="bg-brand-neutral-darkest text-brand-neutral-lightest font-mono text-sm p-4 rounded-lg overflow-x-auto shadow-md"><code class="language-html">&lt;!-- Simple Date --&gt;
+&lt;p&gt;Posted on &lt;time datetime="2025-04-03"&gt;April 3, 2025&lt;/time&gt;.&lt;/p&gt;
+
+&lt;!-- Date and Time --&gt;
+&lt;p&gt;Meeting scheduled for &lt;time datetime="2025-05-10T14:30:00"&gt;May 10th at 2:30 PM&lt;/time&gt;.&lt;/p&gt;
+
+&lt;!-- Time only --&gt;
+&lt;p&gt;The train departs at &lt;time datetime="18:00"&gt;6 PM&lt;/time&gt;.&lt;/p&gt;
+
+&lt;!-- Duration (less common, format varies) --&gt;
+&lt;p&gt;The video duration is &lt;time datetime="PT2M30S"&gt;2 minutes 30 seconds&lt;/time&gt;.&lt;/p&gt;</code></pre>
+                    <p class="text-sm italic text-brand-neutral-medium mt-4">The format for the <code>datetime</code> attribute should follow standard date and time string formats (e.g., YYYY-MM-DD, YYYY-MM-DDTHH:MM:SSZ).</p>
+                </section>
+
+            </article>
+
+            <footer class="mt-16 pt-8 border-t border-brand-neutral-light/80 text-center text-brand-neutral-medium text-sm">
+                <p>&copy; <span id="year"></span> HTML Text Formatting Docs. Styled with Tailwind CSS.</p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Simple script for mobile sidebar toggle
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+
+            if (sidebarToggle && sidebar) {
+                sidebarToggle.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent click from bubbling to document
+                    sidebar.classList.toggle('translate-x-0');
+                    sidebar.classList.toggle('-translate-x-full');
+                });
+
+                 // Close sidebar when clicking a link inside it (on mobile)
+                 sidebar.querySelectorAll('a').forEach(link => {
+                     link.addEventListener('click', () => {
+                         if (window.innerWidth < 640) { // sm breakpoint
+                            sidebar.classList.add('-translate-x-full');
+                            sidebar.classList.remove('translate-x-0');
+                         }
+                     });
+                 });
+            }
+
+             // Close sidebar if clicking outside of it on mobile
+             document.addEventListener('click', (event) => {
+                 const isClickInsideSidebar = sidebar.contains(event.target);
+                 const isClickOnToggle = sidebarToggle && sidebarToggle.contains(event.target); // Check if toggle exists
+
+                 if (!isClickInsideSidebar && !isClickOnToggle && window.innerWidth < 640) {
+                     if (sidebar && !sidebar.classList.contains('-translate-x-full')) { // Check if sidebar exists and is open
+                         sidebar.classList.add('-translate-x-full');
+                         sidebar.classList.remove('translate-x-0');
+                     }
+                 }
+             });
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Add arrow rotation for details/summary
+            document.querySelectorAll('details').forEach((detail) => {
+                detail.addEventListener('toggle', () => {
+                    const arrow = detail.querySelector('summary .details-arrow');
+                    if (arrow) {
+                        // Find the SVG inside the summary to rotate
+                        const svgArrow = detail.querySelector('summary svg');
+                        if(svgArrow){
+                             svgArrow.style.transform = detail.open ? 'rotate(90deg)' : 'rotate(0deg)';
+                        }
+                    }
+                });
+                // Initial state check
+                 const arrow = detail.querySelector('summary .details-arrow');
+                 if (arrow && detail.open) {
+                     // Find the SVG inside the summary to rotate
+                     const svgArrow = detail.querySelector('summary svg');
+                     if(svgArrow){
+                          svgArrow.style.transform = 'rotate(90deg)';
+                     }
+                 }
+            });
+
+             // Find the SVG inside the summary for details/summary example and add class
+            const detailsSummarySection = document.getElementById('details-summary');
+            if(detailsSummarySection){
+                const detailsExamples = detailsSummarySection.querySelectorAll('details');
+                detailsExamples.forEach(detail => {
+                    const summarySvg = detail.querySelector('summary svg');
+                    if(summarySvg){
+                        summarySvg.classList.add('details-arrow'); // Add class for JS targeting
+                        summarySvg.style.transition = 'transform 0.2s'; // Add transition directly
+                         if (detail.open) { // Set initial state for open details
+                             summarySvg.style.transform = 'rotate(90deg)';
+                         }
+                    }
+                });
+            }
+
+
+        }); // End of DOMContentLoaded listener
+    </script>
+
+</body>
+</html>

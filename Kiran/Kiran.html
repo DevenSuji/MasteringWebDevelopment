@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimony Bio Data - Kiran Kumar KM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // Set Inter as primary font
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-gold': { light: '#fef3c7', DEFAULT: '#fcd34d', dark: '#f59e0b' },
+                        'brand-maroon': { light: '#fee2e2', DEFAULT: '#b91c1c', dark: '#7f1d1d' },
+                        'brand-cream': '#fffbeb',
+                        'brand-dark': '#450a0a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Screen Styles */
+        body {
+            background-image: url('https://thumbs.dreamstime.com/b/golden-wedding-rings-sparkling-background-perfect-anniversary-announcements-generated-ai-336524573.jpg');
+            background-size: cover;
+            /* **** FIX: Adjust background position **** */
+            background-position: 100% center;
+            background-attachment: fixed;
+            font-family: 'Inter', sans-serif; /* Use Inter */
+        }
+        /* Adjusted spacing for single language */
+        dl dt {
+            font-weight: 600;
+            color: #fcd34d;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        dl dd {
+            margin-left: 0;
+            margin-bottom: 0.5rem;
+            color: #fffbeb;
+            line-height: 1.5;
+        }
+        dl dd ol { list-style: decimal; margin-left: 1.5rem; margin-top: 0.25rem; }
+        dl dd ol li { margin-bottom: 0.25rem; } /* Reduced sibling spacing */
+
+        .border-brand-gold { border-color: #fcd34d; }
+        .text-brand-gold { color: #fcd34d; }
+        .text-brand-gold-light { color: #fef3c7; }
+        .text-brand-cream { color: #fffbeb; }
+        .bg-brand-dark-overlay { background-color: rgba(69, 10, 10, 0.7); }
+        h1, h2 { font-weight: 700; }
+
+        /* Print specific styles */
+        @media print {
+            @page { size: A4; margin: 1cm; }
+            body {
+                margin: 0;
+                background-attachment: scroll !important;
+                height: 100%; min-height: 100vh;
+                display: flex; justify-content: center; align-items: flex-start;
+                font-size: 11pt; /* Increased base print size */
+                font-family: 'Inter', sans-serif !important; /* Use Inter for print */
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+                /* **** FIX: Adjust background position for print **** */
+                background-position: 25% center !important;
+            }
+            .container { max-width: 100% !important; padding: 0 !important; margin: 0 !important; width: 19cm; }
+            .bg-brand-dark-overlay {
+                 box-shadow: none !important; backdrop-filter: none !important;
+                 border: 1px solid #fcd34d !important;
+                 -webkit-print-color-adjust: exact; print-color-adjust: exact;
+                 padding: 0.75cm !important;
+             }
+             .grid { gap: 0.75cm !important; }
+             .md\:col-span-1, .md\:col-span-2 { grid-column: span 3 / span 3; }
+             .md\:col-span-1 img { max-width: 150px !important; margin-bottom: 0.5cm !important; }
+             /* Adjust print font sizes */
+             h1 { font-size: 22pt !important; margin-bottom: 0.5cm !important; padding-bottom: 0.2cm !important; }
+             h2 { font-size: 16pt !important; margin-bottom: 0.3cm !important; padding-bottom: 0.1cm !important; }
+             h2.profile-name { font-size: 18pt !important; }
+             p.status { font-size: 10pt !important; }
+             dl dt { font-size: 11pt !important; margin-top: 0.5em !important; font-weight: 600 !important; }
+             dl dd { font-size: 11pt !important; margin-bottom: 0.3em !important; }
+             dl dd ol { margin-left: 1rem; }
+             dl dd ol li { margin-bottom: 0.3em; }
+             section { margin-bottom: 0.5cm !important; }
+             footer { margin-top: 0.75cm !important; padding-top: 0.4cm !important; }
+             footer p { font-size: 10pt !important; }
+             /* Ensure text colors print */
+             dl dd, .text-brand-cream, .text-brand-gold-light, footer p, p.status { color: #fffbeb !important; }
+             dl dt, .text-brand-gold, h1, h2 { color: #fcd34d !important; }
+        }
+    </style>
+</head>
+<body class="antialiased print:print-color-adjust-exact">
+
+    <div class="container mx-auto p-4 sm:p-8 max-w-4xl">
+        <div class="bg-brand-dark-overlay rounded-xl shadow-2xl p-6 md:p-10 border-2 border-brand-gold/50 backdrop-blur-sm print:print-color-adjust-exact">
+
+            <header class="text-center mb-8 border-b-2 border-brand-gold pb-4">
+                <h1 class="text-3xl sm:text-4xl text-brand-gold mb-2">Matrimonial Bio-Data</h1>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div class="md:col-span-1 flex flex-col items-center">
+                    <img src="./Kiran.jpg"
+                         alt="Kiran Kumar KM"
+                         class="rounded-full w-48 h-48 md:w-full md:h-auto max-w-[250px] border-4 border-brand-gold shadow-lg mb-4 object-cover">
+                     <h2 class="profile-name text-2xl text-brand-gold-light text-center font-semibold">Kiran Kumar KM</h2>
+                     <p class="status text-brand-cream text-center text-sm">(Divorced)</p>
+                </div>
+
+                <div class="md:col-span-2">
+                    <section class="mb-6">
+                        <h2 class="text-2xl text-brand-gold border-b border-brand-gold/30 pb-2 mb-4">Personal Details</h2>
+                        <dl>
+                            <dt>Date of Birth:</dt>
+                            <dd>10th April 1989</dd>
+                            <dt>Time of Birth:</dt>
+                            <dd>10:30 PM</dd>
+                            <dt>Education:</dt>
+                            <dd>Masters in Mechanical Engineering</dd>
+                            <dt>Occupation:</dt>
+                            <dd>Manager at Aura Group, Qatar</dd>
+                            <dt>Salary:</dt>
+                            <dd>Approx. Rs 5 Lakhs Per Month</dd>
+                            <dt>Native Place:</dt>
+                            <dd>Arakalgud, Hassan District</dd>
+                        </dl>
+                    </section>
+
+                    <section class="mb-6">
+                        <h2 class="text-2xl text-brand-gold border-b border-brand-gold/30 pb-2 mb-4">Astrological Details</h2>
+                        <dl>
+                            <dt>Nakshatra (Star):</dt>
+                            <dd>Mrigasira Nakshatra</dd>
+                            <dt>Raashi (Zodiac):</dt>
+                            <dd>Vrishabha Raasi (Taurus)</dd>
+                            <dt>Kula:</dt>
+                            <dd>Kwate Kula</dd>
+                            <dt>Gana:</dt>
+                            <dd>Deva Gana</dd>
+                            <dt>Mane Devaru (Family Deities):</dt>
+                            <dd>Kala Bhaireshwara (Bettada Siddhalingeshwara) + Bannamma + Makamma + Kannambadiamma</dd>
+                        </dl>
+                    </section>
+
+                    <section class="mb-6">
+                        <h2 class="text-2xl text-brand-gold border-b border-brand-gold/30 pb-2 mb-4">Family Details</h2>
+                        <dl>
+                            <dt>Father's Name:</dt>
+                            <dd>Mahesh (Irrigation Department)</dd>
+                            <dt>Mother's Name:</dt>
+                            <dd>Nagamma</dd>
+                            <dt>Siblings:</dt>
+                            <dd>
+                                <ol>
+                                    <li>Pavithra M (KSRTC Artisian)</li>
+                                    <li>Kavya M (PWD Clerk)</li>
+                                    <li>Harshavardana K M (Private Job)</li>
+                                </ol>
+                            </dd>
+                        </dl>
+                    </section>
+                </div>
+            </div>
+
+            <footer class="mt-10 pt-6 border-t border-brand-gold/30 text-center">
+                <p class="text-sm text-brand-gold-light italic">Seeking a suitable alliance.</p>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
